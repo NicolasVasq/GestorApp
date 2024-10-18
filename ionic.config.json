@@ -1,0 +1,7 @@
+{
+  "name": "GestorApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
