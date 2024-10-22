@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="header-title">Mi Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="profile-content">
+  <!-- Sección de la foto de perfil -->
+  <div class="profile-header">
+    <ion-avatar class="profile-avatar">
+      <img src="assets/images/default-profile.png" alt="Foto de Perfil">
+    </ion-avatar>
+    <h2 class="profile-name">{{ usuario.nombre }} {{ usuario.apellido }}</h2>
+    <p class="profile-username">{{ usuario.nombreUsuario }}</p>
+  </div>
+
+  <!-- Sección de datos personales -->
+  <ion-list class="profile-details">
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-text>{{ usuario.nombre }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Apellido</ion-label>
+      <ion-text>{{ usuario.apellido }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nombre de Usuario</ion-label>
+      <ion-text>{{ usuario.nombreUsuario }}</ion-text>
+    </ion-item>
+  </ion-list>
+
+  <!-- Sección de eventos registrados -->
+  <div class="events-section">
+    <h3 class="events-title">Eventos Registrados</h3>
+    <ion-list>
+      <ion-item *ngFor="let evento of eventosRegistrados">
+        <ion-label>
+          <h2>{{ evento.titulo }}</h2>
+          <p>{{ evento.fecha }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

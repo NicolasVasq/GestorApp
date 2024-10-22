@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Eliminar Evento</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/lista"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>¿Estás seguro de que quieres eliminar el evento?</ion-card-title>
+      <ion-card-subtitle>ID: {{ evento.id }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Nombre: {{ evento.nombre }}</p>
+      <p>Descripción: {{ evento.descripcion }}</p>
+      <p>Lugar: {{ evento.lugar }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <ion-button (click)="eliminarEvento()" expand="block" fill="solid" color="danger">
+      Confirmar Eliminación
+    </ion-button>
+  </div>
+</ion-content>

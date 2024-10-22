@@ -1,0 +1,125 @@
+/* Fondo animado */
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.profile-content {
+  --background: linear-gradient(270deg, #064180, #1a2b68, #0d0a27);
+  background-size: 600% 600%;
+  animation: gradient-animation 10s ease infinite;
+  padding: 20px;
+  min-height: 100vh;
+  overflow-y: auto; /* Habilitar scroll cuando el contenido sea mayor que la pantalla */
+}
+
+/* Cabecera del título */
+.header-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+/* Sección de foto de perfil */
+.profile-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-avatar {
+  margin: 0 auto;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.profile-avatar:hover {
+  transform: scale(1.05);
+}
+
+.profile-name {
+  color: #00FFD1;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.profile-username {
+  color: #ffffff99;
+  font-size: 16px;
+}
+
+/* Sección de datos personales */
+.profile-details ion-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  margin-bottom: 15px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-details ion-label {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.profile-details ion-text {
+  color: #ffffffcc;
+}
+
+/* Sección de eventos registrados */
+.events-section {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.events-title {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.events-section ion-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.events-section ion-label h2 {
+  color: #00FFD1;
+  font-size: 18px;
+}
+
+.events-section ion-label p {
+  color: #ffffff99;
+}
+
+/* Animaciones para los eventos */
+.events-section ion-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.events-section ion-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.5);
+}

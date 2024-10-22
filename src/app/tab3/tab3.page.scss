@@ -1,0 +1,90 @@
+/* Estilo para el encabezado */
+ion-header {
+    --background: linear-gradient(135deg, #4FC3F7, #0288D1); /* Degradado azul */
+    --color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  ion-title {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  /* Fondo del contenido */
+  ion-content {
+    --background: linear-gradient(135deg, #E1F5FE, #FFFFFF); /* Degradado claro */
+  }
+  
+  /* Estilo para cada item de actividad */
+  .actividad-item {
+    background: #FFFFFF;
+    border-radius: 15px;
+    margin: 10px 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px;
+  }
+  
+  .actividad-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Miniatura de la imagen */
+  .thumbnail {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .actividad-item:hover .thumbnail img {
+    transform: scale(1.1); /* Zoom en hover */
+  }
+  
+  /* Título del evento */
+  ion-label h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0288D1; /* Azul claro */
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Descripción del evento */
+  ion-label p {
+    font-size: 16px;
+    color: #555; /* Gris suave */
+    margin-top: 5px;
+  }
+  
+  /* Animación de entrada */
+  ion-item {
+    animation: fadeInUp 0.5s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Efectos en hover */
+  .actividad-item:hover ion-label h2 {
+    color: #01579B; /* Azul más oscuro al hacer hover */
+  }
+  

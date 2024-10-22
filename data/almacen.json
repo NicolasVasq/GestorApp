@@ -1,0 +1,102 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "Nicolas",
+      "email": "xikolas@gmail.com",
+      "password": "penelas",
+      "rut": "21376422-5",
+      "imagen": ""
+    },
+    {
+      "id": "2",
+      "nombre": "Nicolas",
+      "email": "xikolas@gmail.com",
+      "password": "penelas",
+      "rut": "21376422-5",
+      "imagen": ""
+    },
+    {
+      "id": "b1b0",
+      "nombre": "nicolas",
+      "email": "ni.vasquezc@gmail.com",
+      "rut": "",
+      "password": "hoLaa123",
+      "isactive": true
+    },
+    {
+      "id": "3e25",
+      "nombre": "xavier",
+      "email": "elxaviloko@gmail.com",
+      "rut": "",
+      "password": "xaviReloco123",
+      "isactive": true
+    },
+    {
+      "id": "a92d",
+      "nombre": "sadasdsa",
+      "email": "aasdsd@gmail.com",
+      "rut": "",
+      "password": "hoLaa123",
+      "isactive": true
+    },
+    {
+      "id": "8b91",
+      "nombre": "joakoo",
+      "email": "juakitopedorro@gmail.com",
+      "rut": "",
+      "password": "Pedos123",
+      "isactive": true
+    },
+    {
+      "id": "be42",
+      "nombre": "nicolasjeje",
+      "email": "jejelas@gmail.com",
+      "rut": "",
+      "password": "hoLaa123.",
+      "isactive": true
+    },
+    {
+      "id": "0c4f",
+      "nombre": "xavierliberona",
+      "email": "xavi1234@gmail.com",
+      "rut": "",
+      "password": "hoLaa123.",
+      "isactive": true
+    }
+  ],
+  "eventos": [
+    {
+      "id": "123214",
+      "nombre": "",
+      "fecha": "",
+      "lugar": "",
+      "descripcion": "xfasfasasdfaf",
+      "imagen": "adfadf"
+    },
+    {
+      "id": "0123",
+      "nombre": "",
+      "fecha": "",
+      "lugar": "",
+      "descripcion": "asfaf",
+      "imagen": "safasf"
+    },
+    {
+      "id": "2",
+      "nombre": "",
+      "fecha": "",
+      "lugar": "",
+      "descripcion": "asd",
+      "imagen": "ekisde"
+    },
+    {
+      "id": "1",
+      "nombre": "",
+      "fecha": "",
+      "lugar": "",
+      "descripcion": "cdx",
+      "imagen": "xzcxz"
+    }
+  ]
+}

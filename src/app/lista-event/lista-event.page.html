@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-back-button defaultHref="/tabs/tab1" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gestión de Eventos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let evento of eventos">
+      <ion-label>
+        <h2>{{ evento.nombre }}</h2>
+        <p>{{ evento.descripcion }}</p>
+        <p>{{ evento.fecha }} - {{ evento.hora }}</p>
+        <p>{{ evento.ubicacion }}</p>
+        <p>Cupos disponibles: {{ evento.cupos }}</p>
+      </ion-label>
+      <ion-button fill="outline" slot="end" (click)="editarEvento(evento)">
+        Editar
+      </ion-button>
+      <ion-button color="danger" slot="end" (click)="eliminarEvento(evento.id)">
+        Eliminar
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" color="primary" (click)="abrirFormulario()">
+    Crear nuevo evento
+  </ion-button>
+</ion-content>
+
+
+

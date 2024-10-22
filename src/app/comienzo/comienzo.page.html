@@ -1,0 +1,44 @@
+<ion-header mode="ios" [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center">Iniciar Sesion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card mode="ios">
+    <ion-card-header>
+      <ion-card-title>Ingrese sus datos</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+        
+        <ion-item>
+          <ion-input label="Email" labelPlacement="floating" placeholder="Ingrese su correo electrónico" name="correo" [(ngModel)]="correo"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input label="Contraseña" labelPlacement="floating" placeholder="Ingrese su contraseña" name="pass" [(ngModel)]="pass"></ion-input>
+        </ion-item>
+
+    </ion-card-content>
+
+    <div style="text-align: center;">
+      <ion-button (click)="login()" fill="solid" shape="round" style="--background: #007BFF; padding-bottom: 1px;">
+        Ingresar
+      </ion-button>
+    </div>
+
+    <div style="text-align: center">
+      <ion-button (click)="recuperarContrasena()" fill="clear" class="text-button">
+        ¿Olvidaste la contraseña?
+      </ion-button>
+    </div>
+  </ion-card>
+
+  <div style="text-align: center; margin-top: 200px;">
+    <p style="color: var(--ion-color-primary); font-size: 14px;">
+      ¿No tienes una cuenta? <a (click)="irARegistro()" style="color: var(--ion-color-primary);">Regístrate</a>
+    </p>
+  </div>
+</ion-content>
+

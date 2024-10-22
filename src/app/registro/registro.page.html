@@ -1,0 +1,43 @@
+<ion-header mode="ios" [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center">Registrarse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card mode="ios">
+    <ion-card-header>
+      <ion-card-title>Ingrese sus datos</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-input label="Nombre de usuario" labelPlacement="floating" placeholder="Ingrese su nombre de usuario" ></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-input label="Email" labelPlacement="floating" placeholder="Ingrese su correo electrónico" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Contraseña" type="password" labelPlacement="floating" placeholder="Ingrese su contraseña" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Confirmar Contraseña" type="password" labelPlacement="floating" placeholder="Confirme su contraseña" ></ion-input>
+      </ion-item>
+    </ion-card-content>
+
+    <div style="text-align: center;">
+      <ion-button (click)="irAIniciarSesion()" fill="solid" shape="round" style="--background: #007bff">
+        Registrarse
+      </ion-button>
+    </div>
+    
+  </ion-card>
+  <div style="text-align: center; margin-top: 150px;">
+    <p style="color: var(--ion-color-primary); ">
+      ¿Ya tienes una cuenta? <a (click)="irAIniciarSesion()" style="color: var(--ion-color-primary);">Inicia Sesión</a>
+    </p>
+  </div>
+</ion-content>

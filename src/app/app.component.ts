@@ -1,4 +1,12 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+
+interface Menu{
+  icon:string;
+  name:string;
+  redirecTo:string;
+}
 
 @Component({
   selector: 'app-root',
@@ -6,5 +14,22 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+
+  menu:Menu[]=[
+    {icon:'person-outline',
+      name:'Mi perfil',
+      redirecTo:'/perfil'}
+    ,
+    {icon:'calendar-outline',
+      name:'Actualizar perfil',
+      redirecTo:'/actualizar'}
+    ,
+    
+  ]
+
+  constructor(private router:Router) {}
+
+  exitSess(){
+    this.router.navigate(['login']);
+  }
 }

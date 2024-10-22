@@ -1,17 +1,32 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title>Inicio</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToAgregar()">Crear Evento</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div style="text-align: center;">
+    <h2>Eventos Proximos</h2>
+  </div>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  
+
+  <!-- Mostrar los usuarios obtenidos del JSON -->
+
+  <ion-card (click)="buscarPost(e)" *ngFor="let e of eventos">
+    <ion-card-header>
+      <ion-card-subtitle>ID: {{ e.id }}</ion-card-subtitle>
+      <ion-card-title>{{ e.nombre }}</ion-card-title>
+    </ion-card-header>
+    
+    <ion-card-content>
+      <p><strong>Fecha:</strong> {{ e.fecha }}</p>
+      <p><strong>Lugar:</strong> {{ e.lugar }}</p>
+      <p><strong>Descripción:</strong> {{ e.descripcion }}</p>
+      <p *ngIf="e.imagen"><strong>Imagen:</strong> {{ e.imagen }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

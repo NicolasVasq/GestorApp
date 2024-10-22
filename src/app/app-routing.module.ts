@@ -4,8 +4,55 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+  },
+  
+  {
+    path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  
+  {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: 'detalle',
+    loadChildren: () => import('./detalle/detalle.module').then( m => m.DetallePageModule)
+  },
+  {
+    path: 'pages/agregar',
+    loadChildren: () => import('./pages/agregar/agregar.module').then(m => m.AgregarPageModule)
+  },
+  {
+    path: 'pages/actualizar/:id',
+    loadChildren: () => import('./pages/actualizar/actualizar.module').then( m => m.ActualizarPageModule)
+  },
+  {
+    path: 'eliminar/:id',
+    loadChildren: () => import('./pages/eliminar/eliminar.module').then( m => m.EliminarPageModule)
+  },
+  {
+    path: 'listar',
+    loadChildren: () => import('./pages/listar/listar.module').then( m => m.ListarPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
 ];
 @NgModule({
   imports: [
