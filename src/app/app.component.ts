@@ -27,13 +27,11 @@ export class AppComponent {
 
   exitSess() {
     this.menuCtrl.close('first'); 
-    // Eliminar los datos de sesión
     sessionStorage.removeItem('id');
     sessionStorage.removeItem('nombre');
     sessionStorage.removeItem('password');
     sessionStorage.removeItem('ingresado');
 
-    // Redirigir al usuario a la página de login
     this.router.navigate(['login']);
   }
 }

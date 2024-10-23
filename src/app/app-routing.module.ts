@@ -18,12 +18,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    canActivate: [AuthGuard], // Proteger rutas con AuthGuard
+    canActivate: [AuthGuard],
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
     path: 'perfil',
-    canActivate: [AuthGuard], // Proteger ruta
+    canActivate: [AuthGuard], 
     loadChildren: () => import('./perfil/perfil.module').then(m => m.PerfilPageModule)
   },
   {
@@ -32,12 +32,12 @@ const routes: Routes = [
   },
   {
     path: 'modificar-perfil',
-    canActivate: [AuthGuard], // Proteger ruta
+    canActivate: [AuthGuard], 
     loadChildren: () => import('./pages/modificar-perfil/modificar-perfil.module').then(m => m.ModificarPerfilPageModule)
   },
   {
     path: 'get-users',
-    canActivate: [AuthGuard], // Proteger ruta
+    canActivate: [AuthGuard], 
     loadChildren: () => import('./pages/get-users/get-users.module').then(m => m.GetUsersPageModule)
   },
   {
@@ -50,9 +50,13 @@ const routes: Routes = [
   },
   {
     path: 'deta-usuarios',
-    canActivate: [AuthGuard], // Proteger ruta
+    canActivate: [AuthGuard], 
     loadChildren: () => import('./pages/deta-usuarios/deta-usuarios.module').then(m => m.DetaUsuariosPageModule)
+  },  {
+    path: 'qr-modal',
+    loadChildren: () => import('./qr-modal/qr-modal.module').then( m => m.QrModalPageModule)
   }
+
 ];
 
 @NgModule({
