@@ -1,19 +1,115 @@
 {
   "usuarios": [
     {
+      "id": "1",
+      "nombre": "penelas21",
+      "email": "xikolas@gmail.com",
+      "password": "penelas",
+      "rut": "21376422-5",
+      "imagen": ""
+    },
+    {
+      "id": "2",
+      "nombre": "Nicolas",
+      "email": "xikolas@gmail.com",
+      "password": "penelas",
+      "rut": "21376422-5",
+      "imagen": ""
+    },
+    {
+      "id": "b1b0",
+      "nombre": "nicolasjiji",
+      "email": "ni.vasquezc@gmail.com",
+      "rut": "",
+      "password": "hoLaa123",
+      "isactive": true
+    },
+    {
+      "id": "3e25",
+      "nombre": "xavier",
+      "email": "elxaviloko@gmail.com",
+      "rut": "",
+      "password": "xaviReloco123",
+      "isactive": true
+    },
+    {
+      "id": "a92d",
+      "nombre": "sadasdsa",
+      "email": "aasdsd@gmail.com",
+      "rut": "",
+      "password": "hoLaa123",
+      "isactive": true
+    },
+    {
+      "id": "8b91",
+      "nombre": "joakoo",
+      "email": "juakitopedorro@gmail.com",
+      "rut": "",
+      "password": "Pedos123",
+      "isactive": true
+    },
+    {
       "id": "be42",
       "nombre": "nicolasjeje",
       "email": "jejelas@gmail.com",
-      "rut": "37826672-3",
+      "rut": "",
+      "password": "hoLaa123.",
+      "isactive": true
+    },
+    {
+      "id": "0c4f",
+      "nombre": "xavierliberona",
+      "email": "xavi1234@gmail.com",
+      "rut": "",
+      "password": "hoLaa123.",
+      "isactive": true
+    },
+    {
+      "id": "f17f",
+      "nombre": "nicolasyeye",
+      "email": "kasdnbaskjbskjf@duocuc.cl",
+      "rut": "213764225",
       "password": "hoLaa123.",
       "isactive": true
     },
     {
       "id": "ebc2",
       "nombre": "mauricioElGaticas",
-      "email": "Test123@gmail.com",
-      "rut": "21376422-5",
-      "password": "Testeo12.",
+      "email": "mauriciogatita@gmail.com",
+      "rut": "213764225",
+      "password": "hoLaa123.",
+      "isactive": true
+    },
+    {
+      "id": "c603",
+      "nombre": "nicolasnuevousuario",
+      "email": "naikolas@gmail.com",
+      "rut": "210948910",
+      "password": "hoLaa123.",
+      "isactive": true
+    },
+    {
+      "id": "2b56",
+      "nombre": "keketo",
+      "email": "ni.vasquezc@duocuc.cl",
+      "rut": "213764225",
+      "password": "hoLaa123.",
+      "isactive": true
+    },
+    {
+      "id": "30a7",
+      "nombre": "conchetumare",
+      "email": "queteimporta@gmail.com",
+      "rut": "jejelas@gmail.com+",
+      "password": "hoLaa123.",
+      "isactive": true
+    },
+    {
+      "id": "882b",
+      "nombre": "mauriciootaku",
+      "email": "mauriotakumax@gmail.com",
+      "rut": "213764225",
+      "password": "hoLaa123.",
       "isactive": true
     }
   ],
@@ -47,7 +143,7 @@
       "nombre": "Taller de Machine Learning",
       "fecha": "28/04/2025",
       "lugar": "DuocUC Las Condes",
-      "descripcion": "Un taller intensivo sobre tecnicas y algoritmos de aprendisahe automatico",
+      "descripcion": "Un taller intensivo sobre tecnicas y algoritmos de aprendizaje automatico",
       "imagen": "machine.jpg"
     },
     {
@@ -99,10 +195,367 @@
       "eventoId": "5"
     },
     {
-      "id": 3,
+      "id": "3",
       "texto": "fome la wea",
       "fecha": "2024-10-23T07:54:48.007Z",
-      "usuarioId": "be42"
+      "usuarioId": "be42",
+      "eventoId": "1"
+    },
+    {
+      "id": "4",
+      "texto": "asdasdsa",
+      "fecha": "2024-10-23T08:54:39.260Z",
+      "usuarioId": "be42",
+      "eventoId": "1"
+    },
+    {
+      "id": "5",
+      "texto": "intento 3",
+      "fecha": "2024-10-23T08:59:44.881Z",
+      "usuarioId": "be42",
+      "eventoId": "1"
+    },
+    {
+      "id": "6",
+      "texto": "intento 4",
+      "fecha": "2024-10-23T08:59:57.531Z",
+      "usuarioId": "be42",
+      "eventoId": "3"
+    },
+    {
+      "id": "7",
+      "texto": "intento 3",
+      "fecha": "2024-10-23T09:04:53.803Z",
+      "usuarioId": "be42",
+      "eventoId": "2"
+    },
+    {
+      "id": "8",
+      "texto": "comentar",
+      "fecha": "2024-10-23T15:47:51.173Z",
+      "usuarioId": "be42",
+      "eventoId": "4"
+    },
+    {
+      "id": "9",
+      "texto": "comentario sin inscribirse",
+      "fecha": "2024-10-23T15:48:38.171Z",
+      "usuarioId": "be42",
+      "eventoId": "5"
+    },
+    {
+      "id": "10",
+      "texto": "no deberia poder comentar",
+      "fecha": "2024-10-23T16:08:24.625Z",
+      "usuarioId": "c603",
+      "eventoId": "1"
+    },
+    {
+      "id": "11",
+      "texto": "a",
+      "fecha": "2024-10-23T16:12:58.647Z",
+      "usuarioId": "c603",
+      "eventoId": "1"
+    },
+    {
+      "id": 1,
+      "texto": "me dejara comentar",
+      "fecha": "2024-10-23T20:51:35.202Z",
+      "usuarioId": "2b56",
+      "eventoId": "8"
+    },
+    {
+      "id": 7,
+      "texto": "este comentario si vale",
+      "fecha": "2024-10-23T20:55:11.116Z",
+      "usuarioId": "882b",
+      "eventoId": "1"
+    },
+    {
+      "id": 2,
+      "texto": "este comentario no deberia servir",
+      "fecha": "2024-10-23T20:55:28.372Z",
+      "usuarioId": "882b",
+      "eventoId": "3"
+    },
+    {
+      "id": 8,
+      "texto": "comentario",
+      "fecha": "2024-10-23T20:57:55.497Z",
+      "usuarioId": "882b",
+      "eventoId": "1"
+    },
+    {
+      "id": 2,
+      "texto": "este comentario no deberia servir",
+      "fecha": "2024-10-23T20:58:11.916Z",
+      "usuarioId": "882b",
+      "eventoId": "4"
+    }
+  ],
+  "asistencias": [
+    {
+      "id": "a329",
+      "nombreEvento": "Realidad Virtual y Aumentada",
+      "fechaEvento": "31/11/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "ni.vasquezc@duocuc.cl"
+    },
+    {
+      "id": "8adb",
+      "nombreEvento": "Realidad Virtual y Aumentada",
+      "fechaEvento": "31/11/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "ni.vasquezc@duocuc.cl"
+    },
+    {
+      "id": "4af9",
+      "nombreEvento": "Realidad Virtual y Aumentada",
+      "fechaEvento": "31/11/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "ni.vasquezc@duocuc.cl"
+    },
+    {
+      "id": "073d",
+      "nombreEvento": "Realidad Virtual y Aumentada",
+      "fechaEvento": "31/11/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "ni.vasquezc@duocuc.cl"
+    },
+    {
+      "id": "2efe",
+      "nombreEvento": "Realidad Virtual y Aumentada",
+      "fechaEvento": "31/11/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "ni.vasquezc@duocuc.cl"
+    },
+    {
+      "id": "c1ce",
+      "nombreEvento": "DevOps y automatizacion",
+      "fechaEvento": "02/09/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "ni.vasquezc@duocuc.cl"
+    },
+    {
+      "id": "c28d",
+      "nombreEvento": "DevOps y automatizacion",
+      "fechaEvento": "02/09/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "ni.vasquezc@duocuc.cl"
+    },
+    {
+      "id": "7628",
+      "nombreEvento": "Blockchain y Criptomonedas",
+      "fechaEvento": "12/03/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "ni.vasquezc@duocuc.cl"
+    },
+    {
+      "id": "d54b",
+      "nombreEvento": "Realidad Virtual y Aumentada",
+      "fechaEvento": "31/11/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "ni.vasquezc@duocuc.cl"
+    },
+    {
+      "id": "e3b1",
+      "nombreEvento": "Ciberseguridad avanzada",
+      "fechaEvento": "17/06/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "ni.vasquezc@duocuc.cl"
+    },
+    {
+      "id": "6303",
+      "nombreEvento": "Ionic Workshop",
+      "fechaEvento": "23/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "ni.vasquezc@duocuc.cl"
+    },
+    {
+      "id": "8243",
+      "nombreEvento": "Taller de Machine Learning",
+      "fechaEvento": "28/04/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "ni.vasquezc@duocuc.cl"
+    },
+    {
+      "id": "ec1d",
+      "nombreEvento": "Taller de Machine Learning",
+      "fechaEvento": "28/04/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "ni.vasquezc@duocuc.cl"
+    },
+    {
+      "id": "c644",
+      "nombreEvento": "Realidad Virtual y Aumentada",
+      "fechaEvento": "31/11/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "ni.vasquezc@duocuc.cl"
+    },
+    {
+      "id": "0fe2",
+      "nombreEvento": "Realidad Virtual y Aumentada",
+      "fechaEvento": "31/11/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "ni.vasquezc@duocuc.cl"
+    },
+    {
+      "id": "e120",
+      "usuarioId": "2b56",
+      "eventoId": "1"
+    },
+    {
+      "id": "f5e5",
+      "usuarioId": "2b56",
+      "eventoId": "2"
+    },
+    {
+      "id": "bfe6",
+      "usuarioId": "2b56",
+      "eventoId": "3"
+    },
+    {
+      "id": "4417",
+      "usuarioId": "2b56",
+      "eventoId": "4"
+    },
+    {
+      "id": "21dd",
+      "usuarioId": "2b56",
+      "eventoId": "5"
+    },
+    {
+      "id": "156c",
+      "usuarioId": "2b56",
+      "eventoId": "6"
+    },
+    {
+      "id": "0721",
+      "usuarioId": "2b56",
+      "eventoId": "7"
+    },
+    {
+      "id": "133f",
+      "usuarioId": "2b56",
+      "eventoId": "8"
+    },
+    {
+      "id": "c449",
+      "usuarioId": "2b56",
+      "eventoId": "1"
+    },
+    {
+      "id": "7fec",
+      "usuarioId": "2b56",
+      "eventoId": "3"
+    },
+    {
+      "id": "632c",
+      "usuarioId": "2b56",
+      "eventoId": "4"
+    },
+    {
+      "id": "b653",
+      "usuarioId": "2b56",
+      "eventoId": "5"
+    },
+    {
+      "id": "82fa",
+      "usuarioId": "2b56",
+      "eventoId": "6"
+    },
+    {
+      "id": "d31d",
+      "usuarioId": "2b56",
+      "eventoId": "7"
+    },
+    {
+      "id": "16fe",
+      "usuarioId": "2b56",
+      "eventoId": "2"
+    },
+    {
+      "id": "b526",
+      "usuarioId": "2b56",
+      "eventoId": "8"
+    },
+    {
+      "id": "1852",
+      "usuarioId": "2b56",
+      "eventoId": "8"
+    },
+    {
+      "id": "e7fa",
+      "usuarioId": "2b56",
+      "eventoId": "8"
+    },
+    {
+      "id": "12c6",
+      "usuarioId": "2b56",
+      "eventoId": "5"
+    },
+    {
+      "id": "a83a",
+      "usuarioId": "882b",
+      "eventoId": "5"
+    },
+    {
+      "id": "0fa0",
+      "usuarioId": "882b",
+      "eventoId": "1"
+    },
+    {
+      "id": "6f17",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "mauriotakumax@gmail.com"
+    },
+    {
+      "id": "f6cd",
+      "usuarioId": "882b",
+      "eventoId": "1"
+    },
+    {
+      "id": "f4dd",
+      "usuarioId": "882b",
+      "eventoId": "1"
+    },
+    {
+      "id": "917b",
+      "usuarioId": "882b",
+      "eventoId": "1"
+    },
+    {
+      "id": "572b",
+      "usuarioId": "882b",
+      "eventoId": "3"
+    },
+    {
+      "id": "f952",
+      "usuarioId": "882b",
+      "eventoId": "3"
+    },
+    {
+      "id": "76b4",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "mauriotakumax@gmail.com"
+    },
+    {
+      "id": "4b1f",
+      "nombreEvento": "UX/UI Design",
+      "fechaEvento": "07/01/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "mauriotakumax@gmail.com"
+    },
+    {
+      "id": "3b98",
+      "nombreEvento": "Taller de Machine Learning",
+      "fechaEvento": "28/04/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "mauriotakumax@gmail.com"
     }
   ]
 }

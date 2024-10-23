@@ -1,23 +1,57 @@
 import { Injectable } from '@angular/core';
 import { Comentario } from 'src/interfaces/comentario';
-import { Observable } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { AuthService } from './auth.service';
+import { EventosService } from './eventos.service';
+import { switchMap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ComentarioService {
-  private comentariosUrl = 'http://localhost:3000/comentarios';
-  
+  private comentariosUrl = 'http://localhost:3000/comentarios';  // URL donde se almacenan los comentarios
 
-  constructor(private http: HttpClient) { } // Solo los parámetros del constructor
+  constructor(private http: HttpClient, private authService: AuthService,
+              private eventosService: EventosService) { }
 
+  // Obtener todos los comentarios
   obtenerComentarios(): Observable<Comentario[]> {
-    return this.http.get<Comentario[]>(this.comentariosUrl);
+    return this.http.get<Comentario[]>(this.comentariosUrl).pipe(
+      catchError(error => {
+        console.error('Error al obtener comentarios:', error);
+        return of([]); // Retorna un arreglo vacío en caso de error
+      })
+    );
   }
 
-  agregarComentario(comentario: Comentario): Observable<Comentario> {
-    return this.http.post<Comentario>(this.comentariosUrl, comentario);
+
+  // Agregar un nuevo comentario
+  agregarComentario(eventoId: string, comentario: Comentario): Observable<Comentario> {
+    const usuarioId = this.authService.getUserId();
+    
+    if (!usuarioId) {
+      return throwError('No se encontró el ID del usuario logueado.');
+    }
+
+    return this.eventosService.verificarInscripcion(usuarioId, eventoId).pipe(
+      switchMap(inscrito => {
+        if (inscrito) {
+          return this.http.post<Comentario>(this.comentariosUrl, { ...comentario, usuarioId }).pipe(
+            catchError(error => {
+              console.error('Error al agregar el comentario:', error);
+              return throwError('Error al agregar el comentario, por favor intenta más tarde.');
+            })
+          );
+        } else {
+          return throwError('No puede comentar porque no ha asistido al evento.');
+        }
+      }),
+      catchError(error => {
+        console.error('Error en el flujo de agregar comentario:', error);
+        return throwError(error);
+      })
+    );
   }
 }
+

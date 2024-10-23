@@ -5,6 +5,7 @@ export interface IEvent {
     lugar: string;
     descripcion: string;
     imagen: string; 
+    puedeComentar?: boolean;
   }
 
 

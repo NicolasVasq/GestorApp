@@ -1,7 +1,8 @@
 export interface Comentario {
     id: number;
     texto: string;
-    fecha: Date;
+    fecha: string;
     usuarioId: string; 
+    eventoId: string
   }
   

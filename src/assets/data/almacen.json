@@ -1,19 +1,83 @@
 {
   "usuarios": [
     {
+      "id": "1",
+      "nombre": "penelas21",
+      "email": "xikolas@gmail.com",
+      "password": "penelas",
+      "rut": "21376422-5",
+      "imagen": ""
+    },
+    {
+      "id": "2",
+      "nombre": "Nicolas",
+      "email": "xikolas@gmail.com",
+      "password": "penelas",
+      "rut": "21376422-5",
+      "imagen": ""
+    },
+    {
+      "id": "b1b0",
+      "nombre": "nicolasjiji",
+      "email": "ni.vasquezc@gmail.com",
+      "rut": "",
+      "password": "hoLaa123",
+      "isactive": true
+    },
+    {
+      "id": "3e25",
+      "nombre": "xavier",
+      "email": "elxaviloko@gmail.com",
+      "rut": "",
+      "password": "xaviReloco123",
+      "isactive": true
+    },
+    {
+      "id": "a92d",
+      "nombre": "sadasdsa",
+      "email": "aasdsd@gmail.com",
+      "rut": "",
+      "password": "hoLaa123",
+      "isactive": true
+    },
+    {
+      "id": "8b91",
+      "nombre": "joakoo",
+      "email": "juakitopedorro@gmail.com",
+      "rut": "",
+      "password": "Pedos123",
+      "isactive": true
+    },
+    {
       "id": "be42",
       "nombre": "nicolasjeje",
       "email": "jejelas@gmail.com",
-      "rut": "37826672-3",
+      "rut": "",
+      "password": "hoLaa123.",
+      "isactive": true
+    },
+    {
+      "id": "0c4f",
+      "nombre": "xavierliberona",
+      "email": "xavi1234@gmail.com",
+      "rut": "",
+      "password": "hoLaa123.",
+      "isactive": true
+    },
+    {
+      "id": "f17f",
+      "nombre": "nicolasyeye",
+      "email": "kasdnbaskjbskjf@duocuc.cl",
+      "rut": "213764225",
       "password": "hoLaa123.",
       "isactive": true
     },
     {
       "id": "ebc2",
       "nombre": "mauricioElGaticas",
-      "email": "Test123@gmail.com",
-      "rut": "21376422-5",
-      "password": "Testeo12.",
+      "email": "mauriciogatita@gmail.com",
+      "rut": "213764225",
+      "password": "hoLaa123.",
       "isactive": true
     }
   ],
@@ -24,7 +88,21 @@
       "fecha": "12/12/2024",
       "lugar": "DuocUC Maipu",
       "descripcion": "Seminario avanzado sobre Angular",
-      "imagen": "angular.png"
+      "imagen": "angular.png",
+      "comentarios": [
+        {
+          "id": "1",
+          "texto": "¡Me encantó el taller de Angular!",
+          "fecha": "2024-01-01T10:00:00Z",
+          "usuarioId": "1"
+        },
+        {
+          "id": 3,
+          "texto": "intento 3",
+          "fecha": "2024-10-23T08:59:44.881Z",
+          "usuarioId": "be42"
+        }
+      ]
     },
     {
       "id": "2",
@@ -32,7 +110,8 @@
       "fecha": "23/12/2024",
       "lugar": "DuocUC Villarica",
       "descripcion": "Taller practico de desarrollo de aplicaciones moviles con Ionic",
-      "imagen": "ionicLogo.png"
+      "imagen": "ionicLogo.png",
+      "comentarios": []
     },
     {
       "id": "3",
@@ -40,7 +119,15 @@
       "fecha": "07/01/2025",
       "lugar": "DuocUC Valparaiso",
       "descripcion": "Introduccion al diseño UX/UI para aplicaciones moviles",
-      "imagen": "ux.png"
+      "imagen": "ux.png",
+      "comentarios": [
+        {
+          "id": 4,
+          "texto": "intento 4",
+          "fecha": "2024-10-23T08:59:57.531Z",
+          "usuarioId": "be42"
+        }
+      ]
     },
     {
       "id": "4",
@@ -48,7 +135,8 @@
       "fecha": "28/04/2025",
       "lugar": "DuocUC Las Condes",
       "descripcion": "Un taller intensivo sobre tecnicas y algoritmos de aprendisahe automatico",
-      "imagen": "machine.jpg"
+      "imagen": "machine.jpg",
+      "comentarios": []
     },
     {
       "id": "5",
@@ -56,7 +144,15 @@
       "fecha": "17/06/2025",
       "lugar": "DuocUC Melipilla",
       "descripcion": "Seminario sobre Web utilizando React.js, uno de los frameworks mas populares de JavaScript",
-      "imagen": "ciberseguridad.jpg"
+      "imagen": "ciberseguridad.jpg",
+      "comentarios": [
+        {
+          "id": "2",
+          "texto": "Excelente información sobre ciberseguridad.",
+          "fecha": "2024-01-02T12:00:00Z",
+          "usuarioId": "2"
+        }
+      ]
     },
     {
       "id": "6",
@@ -64,7 +160,8 @@
       "fecha": "12/03/2024",
       "lugar": "DuocUC San Joaquin",
       "descripcion": "Introduccion a la tecnologia blockchain y su impacto en las criptomonedas",
-      "imagen": "blockchain.jpg"
+      "imagen": "blockchain.jpg",
+      "comentarios": []
     },
     {
       "id": "7",
@@ -72,7 +169,8 @@
       "fecha": "02/09/2025",
       "lugar": "DuocUC San Carlos de Apoquindo",
       "descripcion": "Curso sobre practicas DevOps y automatizacion de procesos de desarrollo",
-      "imagen": "dev.png"
+      "imagen": "dev.png",
+      "comentarios": []
     },
     {
       "id": "8",
@@ -80,7 +178,30 @@
       "fecha": "31/11/2025",
       "lugar": "DuocUC San Bernardo",
       "descripcion": "Taller práctico sobre el desarrollo de aplicaciones de realidad aumentada (AR) y realidad virtual (VR).",
-      "imagen": "rv.png"
+      "imagen": "rv.png",
+      "comentarios": []
+    }
+  ],
+  "asistencias": [
+    {
+      "usuarioId": "1",
+      "eventoId": "1"
+    },
+    {
+      "usuarioId": "2",
+      "eventoId": "5"
+    },
+    {
+      "usuarioId": "be42",
+      "eventoId": "3"
+    },
+    {
+      "usuarioId": "8b91",
+      "eventoId": "6"
+    },
+    {
+      "usuarioId": "ebc2",
+      "eventoId": "5"
     }
   ]
 }

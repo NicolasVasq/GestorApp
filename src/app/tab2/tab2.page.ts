@@ -6,6 +6,8 @@ import { MenuController, ModalController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { IUser } from 'src/interfaces/usuarios';
 import { QrModalPage } from '../qr-modal/qr-modal.page';
+import { catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-tab2',
@@ -14,24 +16,43 @@ import { QrModalPage } from '../qr-modal/qr-modal.page';
 })
 export class Tab2Page implements OnInit {
   eventos: IEvent[] = [];
-  codigoQr: string | null = null;
+  puedeComentar: boolean = false;
 
   constructor(
     private eventosService: EventosService,
     private authService: AuthService,
-    private menucontroller: MenuController,
+    private menuController: MenuController,
     private modalController: ModalController,
     private router: Router
   ) {}
 
   ngOnInit() {
-    this.eventosService.getEventos().subscribe((data) => {
-      this.eventos = data.eventos;
-    });
+    this.obtenerEventos();
+  }
+
+  obtenerEventos() {
+    this.eventosService.getEventos().subscribe(
+      eventos => {
+        console.log(eventos); // Verifica qué datos recibes
+        this.eventos = eventos;
+
+        const usuarioId = this.authService.getUserId();
+        if (usuarioId) {
+          this.eventos.forEach(evento => {
+            this.eventosService.verificarInscripcion(usuarioId, evento.id).subscribe(asistio => {
+              evento.puedeComentar = asistio;
+            });
+          });
+        }
+      },
+      error => {
+        console.error('Error al obtener eventos:', error);
+      }
+    );
   }
 
   mostrarMenu() {
-    this.menucontroller.open('first');
+    this.menuController.open('first');
   }
 
   verDetalle(evento: IEvent) {
@@ -47,13 +68,21 @@ export class Tab2Page implements OnInit {
         rutUsuario: rut,
         emailUsuario: usuario.email
       };
-  
-      const qrData = `Evento: ${datosInscripcion.nombreEvento}, Fecha: ${datosInscripcion.fechaEvento}, RUT: ${datosInscripcion.rutUsuario}, Email: ${datosInscripcion.emailUsuario}`;
-  
-      this.mostrarModal(evento, usuario, qrData);
+
+      console.log('Datos de inscripción:', datosInscripcion);
+
+      this.eventosService.inscribirUsuario(datosInscripcion).subscribe(() => {
+        const qrData = `Evento: ${datosInscripcion.nombreEvento}, Fecha: ${datosInscripcion.fechaEvento}, RUT: ${datosInscripcion.rutUsuario}, Email: ${datosInscripcion.emailUsuario}`;
+        this.mostrarModal(evento, usuario, qrData);
+        this.verificarAsistencia(evento.id);
+      }, error => {
+        console.error('Error al inscribirse:', error);
+      });
+    }, error => {
+      console.error('Error al obtener el usuario actual:', error);
     });
   }
-  
+
   async mostrarModal(evento: IEvent, usuario: IUser, codigoQr: string) {
     const modal = await this.modalController.create({
       component: QrModalPage,
@@ -65,4 +94,18 @@ export class Tab2Page implements OnInit {
     });
     return await modal.present();
   }
+
+  verificarAsistencia(eventoId: string) {
+    const usuarioId = this.authService.getUserId();
+    if (usuarioId) {
+      this.eventosService.verificarInscripcion(usuarioId, eventoId).subscribe(inscrito => {
+        this.puedeComentar = inscrito; // Cambia según la respuesta de tu API
+        console.log('Puede comentar:', this.puedeComentar);
+      }, error => {
+        console.error('Error al verificar asistencia:', error);
+      });
+    } else {
+      console.error('No se encontró el ID del usuario logueado.');
+    }
   }
+}

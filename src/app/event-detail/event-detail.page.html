@@ -28,6 +28,10 @@
     </ion-item>
   </ion-list>
 
+  <ion-item *ngIf="!puedeComentar">
+    <p>No puedes comentar, asegúrate de estar inscrito en el evento.</p>
+  </ion-item>
+
   <ion-item>
     <ion-input [(ngModel)]="nuevoComentario" placeholder="Escribe tu comentario..."></ion-input>
   </ion-item>
