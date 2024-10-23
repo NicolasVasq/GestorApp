@@ -49,6 +49,7 @@ const routes: Routes = [
     loadChildren: () => import('./event-detail/event-detail.module').then( m => m.EventDetailPageModule)
   },
   {
+    path: 'deta-usuarios',
     canActivate: [AuthGuard], // Proteger ruta
     loadChildren: () => import('./pages/deta-usuarios/deta-usuarios.module').then(m => m.DetaUsuariosPageModule)
   }
