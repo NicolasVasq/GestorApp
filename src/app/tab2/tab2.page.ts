@@ -49,7 +49,8 @@ export class Tab2Page implements OnInit {
       };
   
       const qrData = `Evento: ${datosInscripcion.nombreEvento}, Fecha: ${datosInscripcion.fechaEvento}, RUT: ${datosInscripcion.rutUsuario}, Email: ${datosInscripcion.emailUsuario}`;
-  
+      
+      this.eventosService.registrarEvento(evento);
       this.mostrarModal(evento, usuario, qrData);
     });
   }

@@ -79,6 +79,6 @@ export class ModificarPerfilPage implements OnInit {
   }
 
   regresar() {
-    this.router.navigate(['/tabs/tab1']);
+    this.router.navigate(['/perfil']);
   }
 }

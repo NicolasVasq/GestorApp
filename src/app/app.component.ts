@@ -20,7 +20,7 @@ export class AppComponent {
 
   menu: Menu[] = [
     { icon: 'person-outline', name: 'Mi perfil', redirecTo: '/perfil' },
-    { icon: 'calendar-outline', name: 'Actualizar perfil', redirecTo: '/modificar-perfil' }
+    { icon: 'calendar-number-outline', name: 'Eventos registrados', redirecTo: '/eventos-registrados' }
   ];
 
   constructor(private router: Router, private menuCtrl: MenuController) {}
