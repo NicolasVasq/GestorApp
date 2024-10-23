@@ -6,8 +6,7 @@ import { MenuController, ModalController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { IUser } from 'src/interfaces/usuarios';
 import { QrModalPage } from '../qr-modal/qr-modal.page';
-import { catchError } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -23,7 +22,8 @@ export class Tab2Page implements OnInit {
     private authService: AuthService,
     private menuController: MenuController,
     private modalController: ModalController,
-    private router: Router
+    private router: Router,
+    private alertController: AlertController
   ) {}
 
   ngOnInit() {
@@ -33,7 +33,7 @@ export class Tab2Page implements OnInit {
   obtenerEventos() {
     this.eventosService.getEventos().subscribe(
       eventos => {
-        console.log(eventos); // Verifica qué datos recibes
+        console.log(eventos);
         this.eventos = eventos;
 
         const usuarioId = this.authService.getUserId();
@@ -61,27 +61,48 @@ export class Tab2Page implements OnInit {
 
   async inscribirme(evento: IEvent) {
     this.authService.obtenerUsuarioActual().subscribe((usuario: IUser) => {
-      const rut = usuario.rut.substring(0, 8);
-      const datosInscripcion = {
-        nombreEvento: evento.nombre,
-        fechaEvento: evento.fecha,
-        rutUsuario: rut,
-        emailUsuario: usuario.email
-      };
-      this.eventosService.registrarEvento(evento);
-
-      console.log('Datos de inscripción:', datosInscripcion);
-
-      this.eventosService.inscribirUsuario(datosInscripcion).subscribe(() => {
-        const qrData = `Evento: ${datosInscripcion.nombreEvento}, Fecha: ${datosInscripcion.fechaEvento}, RUT: ${datosInscripcion.rutUsuario}, Email: ${datosInscripcion.emailUsuario}`;
-        this.mostrarModal(evento, usuario, qrData);
-        this.verificarAsistencia(evento.id);
-      }, error => {
-        console.error('Error al inscribirse:', error);
-      });
+      const usuarioId = this.authService.getUserId();
+      if (usuarioId) {
+        const eventoRegistrado = this.eventosService.getEventosRegistrados().find(e => e.id === evento.id);
+        
+        if (eventoRegistrado) {
+          this.mostrarAlerta('Inscripción Duplicada', 'Ya estás inscrito en este evento');
+        } else {
+          const rut = usuario.rut.substring(0, 8);
+          const datosInscripcion = {
+            nombreEvento: evento.nombre,
+            fechaEvento: evento.fecha,
+            rutUsuario: rut,
+            emailUsuario: usuario.email
+          };
+          
+          this.eventosService.registrarEvento(evento);
+  
+          this.eventosService.inscribirUsuario(datosInscripcion).subscribe(() => {
+            const qrData = `Evento: ${datosInscripcion.nombreEvento}, Fecha: ${datosInscripcion.fechaEvento}, RUT: ${datosInscripcion.rutUsuario}, Email: ${datosInscripcion.emailUsuario}`;
+  
+            this.mostrarModal(evento, usuario, qrData);
+            this.verificarAsistencia(evento.id);
+          }, error => {
+            console.error('Error al inscribirse:', error);
+          });
+        }
+      } else {
+        this.mostrarAlerta('Error de Inicio de Sesión', 'Debes iniciar sesión para inscribirte en un evento.');
+      }
     }, error => {
       console.error('Error al obtener el usuario actual:', error);
     });
+  }
+  
+  async mostrarAlerta(titulo: string, mensaje: string) {
+    const alert = await this.alertController.create({
+      header: titulo,
+      message: mensaje,
+      buttons: ['OK']
+    });
+  
+    await alert.present();
   }
 
   async mostrarModal(evento: IEvent, usuario: IUser, codigoQr: string) {
@@ -100,7 +121,7 @@ export class Tab2Page implements OnInit {
     const usuarioId = this.authService.getUserId();
     if (usuarioId) {
       this.eventosService.verificarInscripcion(usuarioId, eventoId).subscribe(inscrito => {
-        this.puedeComentar = inscrito; // Cambia según la respuesta de tu API
+        this.puedeComentar = inscrito;
         console.log('Puede comentar:', this.puedeComentar);
       }, error => {
         console.error('Error al verificar asistencia:', error);

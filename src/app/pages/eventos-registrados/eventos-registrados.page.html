@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start" >
-      <ion-back-button defaultHref="/tabs/tab1" icon="arrow-back-outline"></ion-back-button>
+      <ion-back-button defaultHref="/tabs/tab2" icon="arrow-back-outline"></ion-back-button>
     </ion-buttons>
     <ion-title>
       Mis eventos registrados
@@ -23,7 +23,7 @@
     </ion-item>
   </ion-list>
 
-  <ion-text *ngIf="eventosRegistrados.length === 0">
+  <ion-text *ngIf="eventosRegistrados.length === 0" style="text-align: center;">
     <p>No estás registrado en ningún evento.</p>
   </ion-text>
 </ion-content>

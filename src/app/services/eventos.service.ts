@@ -59,7 +59,10 @@ export class EventosService {
   verificarInscripcion(usuarioId: string, eventoId: string): Observable<boolean> {
     const url = `${this.inscripcionURL}?usuarioId=${usuarioId}&eventoId=${eventoId}`;
     return this.http.get<any[]>(url).pipe(
-      map(inscripciones => inscripciones.length > 0), 
+      map(inscripciones => {
+        console.log('Inscripciones encontradas:', inscripciones);
+        return inscripciones.length > 0;
+      }), 
       catchError(error => {
         console.error('Error al verificar inscripción:', error);
         return of(false); 

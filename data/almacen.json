@@ -162,49 +162,49 @@
       "eventoId": "1"
     },
     {
-      "id": 1,
+      "id": "1",
       "texto": "me dejara comentar",
       "fecha": "2024-10-23T20:51:35.202Z",
       "usuarioId": "2b56",
       "eventoId": "8"
     },
     {
-      "id": 7,
+      "id": "7",
       "texto": "este comentario si vale",
       "fecha": "2024-10-23T20:55:11.116Z",
       "usuarioId": "882b",
       "eventoId": "1"
     },
     {
-      "id": 2,
+      "id": "2",
       "texto": "este comentario no deberia servir",
       "fecha": "2024-10-23T20:55:28.372Z",
       "usuarioId": "882b",
       "eventoId": "3"
     },
     {
-      "id": 8,
+      "id": "8",
       "texto": "comentario",
       "fecha": "2024-10-23T20:57:55.497Z",
       "usuarioId": "882b",
       "eventoId": "1"
     },
     {
-      "id": 2,
+      "id": "2",
       "texto": "este comentario no deberia servir",
       "fecha": "2024-10-23T20:58:11.916Z",
       "usuarioId": "882b",
       "eventoId": "4"
     },
     {
-      "id": 0,
+      "id": "0",
       "texto": "no pueo",
       "fecha": "2024-10-23T22:24:43.225Z",
       "usuarioId": "882b",
       "eventoId": "1"
     },
     {
-      "id": 0,
+      "id": "0",
       "texto": "aqui no pueo",
       "fecha": "2024-10-23T22:24:56.793Z",
       "usuarioId": "882b",
@@ -500,6 +500,160 @@
       "id": "7eeb",
       "nombreEvento": "DevOps y automatizacion",
       "fechaEvento": "02/09/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "7dcc",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "1392",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "550a",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "3077",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "d812",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "b519",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "33b8",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "0e07",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "284e",
+      "nombreEvento": "Ionic Workshop",
+      "fechaEvento": "23/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "4f05",
+      "nombreEvento": "Ionic Workshop",
+      "fechaEvento": "23/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "8782",
+      "nombreEvento": "UX/UI Design",
+      "fechaEvento": "07/01/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "aa26",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "3225",
+      "nombreEvento": "Ionic Workshop",
+      "fechaEvento": "23/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "ea9f",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "0df9",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "3560",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "a820",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "193f",
+      "nombreEvento": "UX/UI Design",
+      "fechaEvento": "07/01/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "0f90",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "88c0",
+      "nombreEvento": "Ionic Workshop",
+      "fechaEvento": "23/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "3344",
+      "nombreEvento": "Ciberseguridad avanzada",
+      "fechaEvento": "17/06/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "38a2",
+      "nombreEvento": "Ionic Workshop",
+      "fechaEvento": "23/12/2024",
       "rutUsuario": "21376422",
       "emailUsuario": "Test123@gmail.com"
     }
