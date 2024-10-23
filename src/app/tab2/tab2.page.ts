@@ -68,6 +68,7 @@ export class Tab2Page implements OnInit {
         rutUsuario: rut,
         emailUsuario: usuario.email
       };
+      this.eventosService.registrarEvento(evento);
 
       console.log('Datos de inscripción:', datosInscripcion);
 

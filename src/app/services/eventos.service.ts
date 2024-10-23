@@ -23,7 +23,6 @@ export class EventosService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  // Inscribir a un usuario en un evento
   inscribirUsuario(datosInscripcion: InscripcionDatos): Observable<{ eventoId: string }> {
     return this.http.post<{ eventoId: string }>(this.inscripcionURL, datosInscripcion).pipe(
       map(response => {
@@ -39,7 +38,6 @@ export class EventosService {
     );
   }
 
-  // Obtener eventos
   getEventos(): Observable<IEvent[]> {
     return this.http.get<IEvent[]>(this.jsonURL).pipe(
       catchError(error => {
@@ -49,7 +47,6 @@ export class EventosService {
     );
   }
 
-  // Obtener asistencias
   obtenerAsistencias(): Observable<any[]> {
     return this.http.get<any[]>(this.inscripcionURL).pipe(
       catchError(error => {
@@ -59,14 +56,13 @@ export class EventosService {
     );
   }
 
-  // Verificar si un usuario está inscrito en un evento
   verificarInscripcion(usuarioId: string, eventoId: string): Observable<boolean> {
     const url = `${this.inscripcionURL}?usuarioId=${usuarioId}&eventoId=${eventoId}`;
     return this.http.get<any[]>(url).pipe(
-      map(inscripciones => inscripciones.length > 0), // Devuelve true si hay inscripciones
+      map(inscripciones => inscripciones.length > 0), 
       catchError(error => {
         console.error('Error al verificar inscripción:', error);
-        return of(false); // Devuelve false si hay un error
+        return of(false); 
       })
     );
   }

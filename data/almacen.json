@@ -195,6 +195,20 @@
       "fecha": "2024-10-23T20:58:11.916Z",
       "usuarioId": "882b",
       "eventoId": "4"
+    },
+    {
+      "id": 0,
+      "texto": "no pueo",
+      "fecha": "2024-10-23T22:24:43.225Z",
+      "usuarioId": "882b",
+      "eventoId": "1"
+    },
+    {
+      "id": 0,
+      "texto": "aqui no pueo",
+      "fecha": "2024-10-23T22:24:56.793Z",
+      "usuarioId": "882b",
+      "eventoId": "7"
     }
   ],
   "asistencias": [
@@ -472,6 +486,20 @@
       "id": "b242",
       "nombreEvento": "Conferencia Angular",
       "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "32db",
+      "nombreEvento": "DevOps y automatizacion",
+      "fechaEvento": "02/09/2025",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "7eeb",
+      "nombreEvento": "DevOps y automatizacion",
+      "fechaEvento": "02/09/2025",
       "rutUsuario": "21376422",
       "emailUsuario": "Test123@gmail.com"
     }
