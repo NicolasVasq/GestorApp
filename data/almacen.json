@@ -1,83 +1,19 @@
 {
   "usuarios": [
     {
-      "id": "1",
-      "nombre": "penelas21",
-      "email": "xikolas@gmail.com",
-      "password": "penelas",
-      "rut": "21376422-5",
-      "imagen": ""
-    },
-    {
-      "id": "2",
-      "nombre": "Nicolas",
-      "email": "xikolas@gmail.com",
-      "password": "penelas",
-      "rut": "21376422-5",
-      "imagen": ""
-    },
-    {
-      "id": "b1b0",
-      "nombre": "nicolasjiji",
-      "email": "ni.vasquezc@gmail.com",
-      "rut": "",
-      "password": "hoLaa123",
-      "isactive": true
-    },
-    {
-      "id": "3e25",
-      "nombre": "xavier",
-      "email": "elxaviloko@gmail.com",
-      "rut": "",
-      "password": "xaviReloco123",
-      "isactive": true
-    },
-    {
-      "id": "a92d",
-      "nombre": "sadasdsa",
-      "email": "aasdsd@gmail.com",
-      "rut": "",
-      "password": "hoLaa123",
-      "isactive": true
-    },
-    {
-      "id": "8b91",
-      "nombre": "joakoo",
-      "email": "juakitopedorro@gmail.com",
-      "rut": "",
-      "password": "Pedos123",
-      "isactive": true
-    },
-    {
       "id": "be42",
       "nombre": "nicolasjeje",
       "email": "jejelas@gmail.com",
-      "rut": "",
-      "password": "hoLaa123.",
-      "isactive": true
-    },
-    {
-      "id": "0c4f",
-      "nombre": "xavierliberona",
-      "email": "xavi1234@gmail.com",
-      "rut": "",
-      "password": "hoLaa123.",
-      "isactive": true
-    },
-    {
-      "id": "f17f",
-      "nombre": "nicolasyeye",
-      "email": "kasdnbaskjbskjf@duocuc.cl",
-      "rut": "213764225",
+      "rut": "37826672-3",
       "password": "hoLaa123.",
       "isactive": true
     },
     {
       "id": "ebc2",
       "nombre": "mauricioElGaticas",
-      "email": "mauriciogatita@gmail.com",
-      "rut": "213764225",
-      "password": "hoLaa123.",
+      "email": "Test123@gmail.com",
+      "rut": "21376422-5",
+      "password": "Testeo12.",
       "isactive": true
     }
   ],

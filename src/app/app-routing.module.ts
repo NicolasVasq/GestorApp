@@ -52,7 +52,11 @@ const routes: Routes = [
     path: 'deta-usuarios',
     canActivate: [AuthGuard], 
     loadChildren: () => import('./pages/deta-usuarios/deta-usuarios.module').then(m => m.DetaUsuariosPageModule)
+  },  {
+    path: 'qr-modal',
+    loadChildren: () => import('./qr-modal/qr-modal.module').then( m => m.QrModalPageModule)
   }
+
 ];
 
 @NgModule({
