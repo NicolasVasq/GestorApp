@@ -54,4 +54,8 @@ export class AuthService {
   Registrar(usuario: any): Observable<IUser> {
     return this.httpclient.post<IUser>('http://localhost:3000/usuarios', usuario);
   }
+  getUserId(): string | null {
+    return sessionStorage.getItem('id');
+  }
 }
+

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tab2"></ion-back-button>
+      <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ evento?.nombre }}</ion-title>
   </ion-toolbar>
@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-card *ngIf="evento">
-    <img [src]="'assets/imag/' + evento.imagen" alt="{{ evento.nombre }}" />
+    <img [src]="'assets/img/' + evento.imagen" alt="{{ evento.nombre }}" />
     <ion-card-header>
       <ion-card-title>{{ evento.nombre }}</ion-card-title>
       <ion-card-subtitle>{{ evento.fecha }} - {{ evento.lugar }}</ion-card-subtitle>
@@ -18,4 +18,18 @@
       <p>{{ evento.descripcion }}</p>
     </ion-card-content>
   </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let comentario of comentarios">
+      <ion-label>
+        <h2>{{ comentario.texto }}</h2>
+        <p>{{ comentario.fecha | date: 'short' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-input [(ngModel)]="nuevoComentario" placeholder="Escribe tu comentario..."></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="agregarComentario()">Enviar</ion-button>
 </ion-content>

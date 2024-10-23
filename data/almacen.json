@@ -146,5 +146,27 @@
       "descripcion": "Taller práctico sobre el desarrollo de aplicaciones de realidad aumentada (AR) y realidad virtual (VR).",
       "imagen": "rv.png"
     }
+  ],
+  "comentarios": [
+    {
+      "id": "1",
+      "texto": "¡Me encantó el taller de Angular!",
+      "fecha": "2024-01-01T10:00:00Z",
+      "usuarioId": "1",
+      "eventoId": "1"
+    },
+    {
+      "id": "2",
+      "texto": "Excelente información sobre ciberseguridad.",
+      "fecha": "2024-01-02T12:00:00Z",
+      "usuarioId": "2",
+      "eventoId": "5"
+    },
+    {
+      "id": 3,
+      "texto": "fome la wea",
+      "fecha": "2024-10-23T07:54:48.007Z",
+      "usuarioId": "be42"
+    }
   ]
 }
