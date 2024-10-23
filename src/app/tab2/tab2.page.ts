@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ApidatosService } from '../services/apidatos.service';
-import { ApicrudService } from 'src/app/services/apicrud.service';
+import { Router } from '@angular/router';
+import { EventosService } from '../services/eventos.service';
 import { IEvent } from 'src/interfaces/ItEvent';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -10,51 +10,25 @@ import { IEvent } from 'src/interfaces/ItEvent';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page implements OnInit {
-  posteos: any[] = [];
   eventos: IEvent[] = [];
 
   constructor(
-    private apidatos: ApidatosService,
-    private router: Router,
-    private apicrud: ApicrudService,
-    private activatedRoute: ActivatedRoute
+    private eventosService: EventosService,
+    private menucontroller: MenuController,
+    private router: Router
   ) {}
 
   ngOnInit() {
-    this.loadEventos();
-    this.CargarApi();
-    this.activatedRoute.queryParams.subscribe(params => {
-      if (params['reload']) {
-        this.loadEventos(); // Recargar eventos si se indicó
-      }
+    this.eventosService.getEventos().subscribe((data) => {
+      this.eventos = data.eventos;
     });
   }
 
-  loadEventos() {
-    this.apicrud.getIEvent().subscribe(eventos => {
-      this.eventos = eventos; // Actualiza la lista de eventos
-    });
+  mostrarMenu() {
+    this.menucontroller.open('first');
   }
 
-  CargarApi() {
-    this.apidatos.getPosts().subscribe(
-      resp => {
-        console.log(resp);
-        this.posteos = resp; // Almacena los datos en el array posteos
-      },
-      error => {
-        console.error('Error al cargar los datos:', error); // Manejo de errores
-      }
-    );
-  }
-
-  buscarPost(post: any) {
-    this.router.navigate(['/detalle'], {
-      queryParams: { post: JSON.stringify(post) }
-    });
-  }
-
-  goToAgregar() {
-    this.router.navigateByUrl('/pages/agregar');
+  verDetalle(evento: IEvent) {
+    this.router.navigate(['/event-detail', { id: evento.id }]);
   }
 }

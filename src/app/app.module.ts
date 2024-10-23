@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { QRCodeModule } from 'angularx-qrcode';
 
 
 @NgModule({
@@ -16,8 +17,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    QRCodeModule,
     AppRoutingModule,
-    HttpClientModule  ,// Asegúrate de incluir este módulo aquí
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule
   ],

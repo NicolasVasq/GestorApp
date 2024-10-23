@@ -9,7 +9,7 @@ import { LoginPage } from './login.page';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,  // Asegúrate de que esto esté aquí
+    ReactiveFormsModule,
     IonicModule,
     LoginPageRoutingModule
   ],

@@ -61,7 +61,6 @@ export class ListaEventPage implements OnInit {
           text: 'Guardar',
           handler: (data) => {
             if (data.nombre && data.descripcion && data.fecha && data.hora && data.ubicacion && data.cupos) {
-              // Actualiza el evento con los nuevos datos
               evento.nombre = data.nombre;
               evento.descripcion = data.descripcion;
               evento.fecha = data.fecha;

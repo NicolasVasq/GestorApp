@@ -16,7 +16,7 @@ interface Evento {
 export class PerfilPage implements OnInit {
   usuarioForm: FormGroup;
   eventosRegistrados: Evento[] = [];
-  usuario: IUser | undefined; // Se declara como undefined
+  usuario: IUser | undefined;
 
   constructor(private authService: AuthService, private formBuilder: FormBuilder) {
     this.usuarioForm = this.formBuilder.group({
@@ -36,8 +36,8 @@ export class PerfilPage implements OnInit {
   obtenerUsuario() {
     this.authService.obtenerUsuarioActual().subscribe(
       (data: IUser) => {
-        this.usuarioForm.patchValue(data); // Cargar datos en el formulario
-        this.usuario = data; // Asigna los datos del usuario
+        this.usuarioForm.patchValue(data);
+        this.usuario = data; 
       },
       error => {
         console.error('Error al obtener los datos del usuario:', error);

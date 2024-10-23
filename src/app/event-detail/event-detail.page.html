@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ evento?.nombre }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="evento">
+    <img [src]="'assets/imag/' + evento.imagen" alt="{{ evento.nombre }}" />
+    <ion-card-header>
+      <ion-card-title>{{ evento.nombre }}</ion-card-title>
+      <ion-card-subtitle>{{ evento.fecha }} - {{ evento.lugar }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ evento.descripcion }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -19,18 +19,6 @@ const routes: Routes = [
     path: 'detalle',
     loadChildren: () => import('./detalle/detalle.module').then( m => m.DetallePageModule)
   },
-  {
-    path: 'pages/agregar',
-    loadChildren: () => import('./pages/agregar/agregar.module').then(m => m.AgregarPageModule)
-  },
-  {
-    path: 'pages/actualizar/:id',
-    loadChildren: () => import('./pages/actualizar/actualizar.module').then( m => m.ActualizarPageModule)
-  },
-  {
-    path: 'eliminar/:id',
-    loadChildren: () => import('./pages/eliminar/eliminar.module').then( m => m.EliminarPageModule)
-  },
 
   {
     path: 'register',
@@ -52,6 +40,11 @@ const routes: Routes = [
     path: 'deta-usuarios/:nombre',
     loadChildren: () => import('./pages/deta-usuarios/deta-usuarios.module').then( m => m.DetaUsuariosPageModule)
   },
+  {
+    path: 'event-detail',
+    loadChildren: () => import('./event-detail/event-detail.module').then( m => m.EventDetailPageModule)
+  },
+
 ];
 @NgModule({
   imports: [

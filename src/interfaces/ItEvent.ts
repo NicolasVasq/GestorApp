@@ -1,7 +1,5 @@
-
-//get, put, delete
 export interface IEvent {
-    id: number;
+    id: string  ;
     nombre: string;
     fecha: string;
     lugar: string;
@@ -9,7 +7,6 @@ export interface IEvent {
     imagen: string; 
   }
 
-//post
 
 export interface ICrearEvent {
     nombre: string;

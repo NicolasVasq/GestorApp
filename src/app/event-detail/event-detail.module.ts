@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ActualizarPageRoutingModule } from './actualizar-routing.module';
+import { EventDetailPageRoutingModule } from './event-detail-routing.module';
 
-import { ActualizarPage } from './actualizar.page';
+import { EventDetailPage } from './event-detail.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ActualizarPageRoutingModule
+    EventDetailPageRoutingModule
   ],
-  declarations: [ActualizarPage]
+  declarations: [EventDetailPage]
 })
-export class ActualizarPageModule {}
+export class EventDetailPageModule {}

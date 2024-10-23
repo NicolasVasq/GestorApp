@@ -10,7 +10,6 @@ import { IUser } from 'src/interfaces/usuarios';
   styleUrls: ['./modificar-Perfil.page.scss'],
 })
 export class ModificarPerfilPage implements OnInit {
-  // Objeto evento
   usuario: IUser = {
     id: "",
     nombre: "",
@@ -27,19 +26,17 @@ export class ModificarPerfilPage implements OnInit {
   ) {
     this.activated.queryParams.subscribe(param => {
       if (param['usuarios']) {
-        this.usuario = JSON.parse(param['usuarios']);  // Asignar todos los valores del evento
+        this.usuario = JSON.parse(param['usuarios']); 
       }
     });
   }
   ngOnInit() {}
 
   actualizar() {
-    // Asegúrate de que todos los campos estén correctamente rellenados antes de enviar la actualización
     if (this.usuario.nombre && this.usuario.email && this.usuario.password) {
       this.apicrud.putUsuarios(this.usuario).subscribe(
         response => {
           console.log('Usuario actualizado con éxito', response);
-          // Solo redirige si la actualización fue exitosa
           this.router.navigateByUrl('/tabs/tab2');
         },
         error => {

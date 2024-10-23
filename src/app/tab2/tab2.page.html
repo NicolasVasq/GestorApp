@@ -1,32 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Inicio</ion-title>
+    <ion-icon slot="start" name="radio-outline" size="large" style="padding-left: 15px;"></ion-icon>
+    <ion-title>InsKrip App</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="goToAgregar()">Crear Evento</ion-button>
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="end" name="menu-outline" size="large" color="dark"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div style="text-align: center;">
-    <h2>Eventos Proximos</h2>
+    <h2>Eventos Próximos</h2>
   </div>
 
-  
-
-  <!-- Mostrar los usuarios obtenidos del JSON -->
-
-  <ion-card (click)="buscarPost(e)" *ngFor="let e of eventos">
-    <ion-card-header>
-      <ion-card-subtitle>ID: {{ e.id }}</ion-card-subtitle>
-      <ion-card-title>{{ e.nombre }}</ion-card-title>
-    </ion-card-header>
-    
-    <ion-card-content>
-      <p><strong>Fecha:</strong> {{ e.fecha }}</p>
-      <p><strong>Lugar:</strong> {{ e.lugar }}</p>
-      <p><strong>Descripción:</strong> {{ e.descripcion }}</p>
-      <p *ngIf="e.imagen"><strong>Imagen:</strong> {{ e.imagen }}</p>
-    </ion-card-content>
-  </ion-card>
+  <ion-list>
+    <ion-item *ngFor="let evento of eventos" (click)="verDetalle(evento)">
+      <ion-thumbnail slot="start">
+        <img [src]="'assets/imagenes/' + evento.imagen" alt="{{ evento.nombre }}" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ evento.nombre }}</h2>
+        <p>{{ evento.fecha }} - {{ evento.lugar }}</p>
+        <p>{{ evento.descripcion }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

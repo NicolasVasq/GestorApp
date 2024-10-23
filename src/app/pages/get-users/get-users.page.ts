@@ -1,4 +1,3 @@
-// tab4.page.ts
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -32,6 +31,6 @@ export class GetUsersPage implements OnInit {
   }
 
   verDetalleUsuario(usuario: any) {
-    this.router.navigate(['/deta-usuarios', usuario.nombre]);  // Navega a la vista de detalle con el ID del usuario
+    this.router.navigate(['/deta-usuarios', usuario.nombre]); 
   }
 }

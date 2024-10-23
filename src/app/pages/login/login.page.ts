@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
   };
 
   loginForm: FormGroup; 
-  loginError: string | null = null; // Nueva propiedad para manejar errores de inicio de sesión
+  loginError: string | null = null;
 
   constructor(private alertcontroller: AlertController,
               private router: Router,
@@ -47,7 +47,7 @@ export class LoginPage implements OnInit {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
 
-    this.loginError = null; // Reinicia el mensaje de error
+    this.loginError = null;
 
     this.authservice.GetUserByEmail(email).subscribe(
       resp => { 
@@ -71,10 +71,9 @@ export class LoginPage implements OnInit {
             isactive: userFromApi.isactive
           };
   
-          // Verificar contraseña y estado activo
           if (this.usuario.password !== password) {
             this.loginForm.reset();
-            this.loginError = 'Credenciales incorrectas'; // Establece mensaje de error
+            this.loginError = 'Credenciales incorrectas'; 
             return;
           }
 
@@ -89,7 +88,7 @@ export class LoginPage implements OnInit {
       },
       error => {
         console.error('Error al obtener usuario:', error);
-        this.loginError = 'Error en el servidor, por favor intente más tarde'; // Mensaje de error
+        this.loginError = 'Error en el servidor, por favor intente más tarde'; 
       }
     );
   }
