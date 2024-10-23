@@ -1,13 +1,18 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title class="header-title">Mi Perfil</ion-title>
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-back-button defaultHref="/tabs/tab1" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Mi Perfil
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="profile-content">
   <div class="profile-header">
     <ion-avatar class="profile-avatar">
-      <img src="assets/images/default-profile.png" alt="Foto de Perfil">
+      <img src="assets/img/juan.jpg" alt="Foto de Perfil">
     </ion-avatar>
     <h2 class="profile-name">{{ usuario?.nombre }}</h2>
     <p class="profile-username">{{ usuario?.email }}</p>

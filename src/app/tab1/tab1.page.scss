@@ -7,14 +7,11 @@ ion-toolbar ion-title {
   text-transform: uppercase;
 }
 
-/* Estilos para la sección de bienvenida (hero) */
-
-
 .hero-section {
   background: linear-gradient(135deg, #007BFF 0%, #00C6FF 100%);
-  padding: 20px 25px;
+  padding: 90px 10px;
   color: #FFFFFF;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   text-align: center;
   transform-style: preserve-3d;
@@ -36,7 +33,6 @@ ion-toolbar ion-title {
 .hero-title {
   font-size: 32px;
   font-weight: bold;
-  margin-bottom: 15px;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -48,7 +44,7 @@ ion-toolbar ion-title {
 }
 
 .get-started-btn {
-  margin-top: 25px;
+  margin-top: 30px;
   --background: #FFFFFF;
   --color: #007BFF;
   font-weight: bold;
@@ -64,7 +60,6 @@ ion-toolbar ion-title {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos para las tarjetas (futuristic-card) */
 .futuristic-card {
   background: #1e90ff;
   color: #fff;
@@ -98,17 +93,13 @@ ion-card-title {
   color: #FFFFFF;
 }
 
-/* Estilos de animación para las secciones */
 .benefit-item {
   text-align: center;
-  padding: 15px;
   background: #FFFFFF;
-  border-radius: 15px;
+  border-radius: 10px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform: translateZ(0);
-; /* Espacio alrededor de cada tarjeta */
-  max-width: 20px; /* Tamaño máximo de la tarjeta */
   width: 80%;
 }
 
@@ -121,7 +112,7 @@ ion-card-title {
   font-size: 18px;
   color: #007BFF;
   font-weight: bold;
-  margin-top: 15px;
+  margin-top: 3px;
 }
 
 .benefit-text {
@@ -130,10 +121,8 @@ ion-card-title {
   margin-top: 10px;
 }
 
-/* Estilos para la sección de información (info-section) */
 .info-section {
   text-align: center;
-  padding: 30px;
   background: linear-gradient(135deg, #007BFF, #00C6FF);
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -149,7 +138,7 @@ ion-card-title {
   font-size: 24px;
   color: #FFFFFF;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .section-text {
@@ -158,7 +147,6 @@ ion-card-title {
   line-height: 1.6;
 }
 
-/* Transición global para botones */
 ion-button {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -169,5 +157,21 @@ ion-button:hover {
 }
 
 .benefits-row {
-  margin-top: 20px; /* Espaciado superior para las filas de beneficios */
+  margin-top: 10px;
+}
+
+.banner {
+  margin-top: 50px;
+  height: 30vh;
+  swiper-container {
+    swiper-slide {
+      height: 30vh;
+      img{
+        width: 100%;
+        height: 28vh;
+        border-radius: 10px;
+        box-shadow: -1px 11px 13px -6px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
 }

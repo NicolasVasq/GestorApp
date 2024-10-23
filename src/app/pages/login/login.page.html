@@ -1,11 +1,11 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="tertiary">
-    <ion-title>MyTabs</ion-title>
+<ion-header mode="ios" [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center">Iniciar Sesion</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
+  <ion-card mode="ios">
     <ion-card-header>
       <ion-card-title>Login</ion-card-title>
     </ion-card-header>
@@ -16,7 +16,7 @@
           <ion-input 
             type="email" 
             placeholder="Email.." 
-            label="Email:" 
+            label="Email" 
             labelPlacement="floating"
             formControlName="email">
           </ion-input>
@@ -31,7 +31,7 @@
           <ion-input 
             type="password" 
             placeholder="Contraseña.." 
-            label="Contraseña:" 
+            label="Contraseña" 
             labelPlacement="floating"
             formControlName="password">
           </ion-input>
@@ -53,25 +53,9 @@
       </form>
 
       <div style="text-align: center; margin-top: 20px;">
-        <p>No estás registrado? <a (click)="navigateToRegister()" style="color: blue;">Regístrate pulsando aquí</a></p>
+        <p>No estás registrado? <a (click)="navigateToRegister()" color="primary">Regístrate pulsando aquí</a></p>
       </div>
     </ion-card-content>
   </ion-card>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar color="tertiary">
-    <ion-title>My Tabs 2024</ion-title>
-    <ion-buttons slot="end">
-      <ion-button fill="clear">
-        <ion-icon name="logo-instagram"></ion-icon>
-      </ion-button>
-      <ion-button fill="clear">
-        <ion-icon name="logo-facebook"></ion-icon>
-      </ion-button>
-      <ion-button fill="clear">
-        <ion-icon name="logo-twitter"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer>

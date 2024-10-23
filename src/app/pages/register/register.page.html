@@ -1,10 +1,14 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="tertiary">
-    <ion-title>Registro</ion-title>
+<ion-header mode="ios" [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center">Registrarse</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-card mode="ios">
+    <ion-card-header>
+      <ion-card-title>Ingrese sus datos</ion-card-title>
+    </ion-card-header>
   <form [formGroup]="registroForm" (ngSubmit)="crearUsuario()">
     <ion-item>
       <ion-label position="floating">Nombre</ion-label>
@@ -61,25 +65,9 @@
       </ion-button>
     </div>
   </form>
+</ion-card>
 
   <div style="text-align: center; margin-top: 20px;">
-    <p>¿Ya tienes cuenta? <a (click)="navigateToLogin()" style="color: blue;">Inicia sesión pulsando aquí</a></p>
+    <p>¿Ya tienes cuenta? <a (click)="navigateToLogin()" color="primary">Inicia sesión pulsando aquí</a></p>
   </div>
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar color="tertiary">
-    <ion-title>My Tabs 2024</ion-title>
-    <ion-buttons slot="end">
-      <ion-button fill="clear">
-        <ion-icon name="logo-instagram"></ion-icon>
-      </ion-button>
-      <ion-button fill="clear">
-        <ion-icon name="logo-facebook"></ion-icon>
-      </ion-button>
-      <ion-button fill="clear">
-        <ion-icon name="logo-twitter"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer>

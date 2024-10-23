@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
+import {register} from 'swiper/element/bundle';
 
+register();
 
 interface Menu{
   icon:string;
@@ -27,9 +30,10 @@ export class AppComponent {
     
   ]
 
-  constructor(private router:Router) {}
+  constructor(private router:Router, private menuCtrl: MenuController) {}
 
-  exitSess(){
+  exitSess() {
+    this.menuCtrl.close('first'); 
     this.router.navigate(['login']);
   }
 }

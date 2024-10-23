@@ -1,85 +1,93 @@
-/* Colores */
-:root {
-  --ion-color-primary: #007BFF; /* Azul metálico */
-  --ion-color-light: #FFFFFF; /* Blanco */
+.header-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin: 15px 0;
 }
 
-/* Estilos del toolbar */
-.toolbar {
-  background: linear-gradient(90deg, #007BFF 0%, #0056b3 100%);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Contenido del perfil */
 .profile-content {
-  background-color: var(--ion-color-light);
   padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Encabezado del perfil */
 .profile-header {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.profile-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid #007BFF; 
+  overflow: hidden;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 26px;
+  font-weight: 700;
+  color: #007BFF;
+  margin-top: 10px;
+}
+
+.profile-username {
+  font-size: 18px;
+  color: #333333;
+  margin-top: 5px;
+}
+
+.profile-details ion-item {
+  --background: #ffffff;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  padding: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.profile-details ion-label {
+  color: #007BFF;
+  font-weight: 600;
+}
+
+.profile-details ion-text {
+  color: #666666;
+}
+
+.events-section {
+  margin-top: 30px;
+}
+
+.events-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #007BFF;
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* Avatar */
-.profile-avatar {
-  border: 4px solid #007BFF;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.5);
-}
-
-/* Nombre y username */
-.profile-name {
-  font-size: 24px;
-  font-weight: bold;
-  color: #007BFF;
-  margin: 10px 0;
-}
-
-.profile-username {
-  font-size: 14px;
-  color: gray;
-}
-
-/* Detalles del perfil */
-.profile-details {
-  margin-top: 10px;
-}
-
-.profile-item {
-  background: rgba(0, 123, 255, 0.1);
-  border-radius: 8px;
+.events-list ion-item {
+  --background: #ffffff;
+  border-radius: 12px;
   margin-bottom: 10px;
-  transition: background 0.3s;
-}
-
-.profile-item:hover {
-  background: rgba(0, 123, 255, 0.2);
-}
-
-/* Sección de eventos */
-.events-section {
-  margin-top: 20px;
-}
-
-.events-title {
-  font-size: 20px;
-  color: #007BFF;
-  margin-bottom: 10px;
-}
-
-/* Items de eventos */
-.event-item {
-  background: rgba(0, 123, 255, 0.1);
-  border-radius: 8px;
-  margin-bottom: 10px;
-  transition: background 0.3s;
-}
-
-.event-item:hover {
-  background: rgba(0, 123, 255, 0.2);
-}
-
-h2, p {
-  margin: 0;
+  padding: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
