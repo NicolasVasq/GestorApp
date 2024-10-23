@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/autorizado.guard';
 
 const routes: Routes = [
   {
@@ -8,51 +9,60 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterPageModule)
+  },
+  {
     path: '',
+    canActivate: [AuthGuard], // Proteger rutas con AuthGuard
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
     path: 'perfil',
-    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+    canActivate: [AuthGuard], // Proteger ruta
+    loadChildren: () => import('./perfil/perfil.module').then(m => m.PerfilPageModule)
   },
   {
     path: 'detalle',
-    loadChildren: () => import('./detalle/detalle.module').then( m => m.DetallePageModule)
+    canActivate: [AuthGuard], // Proteger ruta
+    loadChildren: () => import('./detalle/detalle.module').then(m => m.DetallePageModule)
   },
   {
     path: 'pages/agregar',
+    canActivate: [AuthGuard], // Proteger ruta
     loadChildren: () => import('./pages/agregar/agregar.module').then(m => m.AgregarPageModule)
   },
   {
     path: 'pages/actualizar/:id',
-    loadChildren: () => import('./pages/actualizar/actualizar.module').then( m => m.ActualizarPageModule)
+    canActivate: [AuthGuard], // Proteger ruta
+    loadChildren: () => import('./pages/actualizar/actualizar.module').then(m => m.ActualizarPageModule)
   },
   {
     path: 'eliminar/:id',
-    loadChildren: () => import('./pages/eliminar/eliminar.module').then( m => m.EliminarPageModule)
-  },
-
-  {
-    path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
-  },
-  {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    canActivate: [AuthGuard], // Proteger ruta
+    loadChildren: () => import('./pages/eliminar/eliminar.module').then(m => m.EliminarPageModule)
   },
   {
     path: 'modificar-perfil',
-    loadChildren: () => import('./pages/modificar-perfil/modificar-perfil.module').then( m => m.ModificarPerfilPageModule)
+    canActivate: [AuthGuard], // Proteger ruta
+    loadChildren: () => import('./pages/modificar-perfil/modificar-perfil.module').then(m => m.ModificarPerfilPageModule)
   },
   {
     path: 'get-users',
-    loadChildren: () => import('./pages/get-users/get-users.module').then( m => m.GetUsersPageModule)
+    canActivate: [AuthGuard], // Proteger ruta
+    loadChildren: () => import('./pages/get-users/get-users.module').then(m => m.GetUsersPageModule)
   },
   {
     path: 'deta-usuarios/:nombre',
-    loadChildren: () => import('./pages/deta-usuarios/deta-usuarios.module').then( m => m.DetaUsuariosPageModule)
-  },
+    canActivate: [AuthGuard], // Proteger ruta
+    loadChildren: () => import('./pages/deta-usuarios/deta-usuarios.module').then(m => m.DetaUsuariosPageModule)
+  }
 ];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
