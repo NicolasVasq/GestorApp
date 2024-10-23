@@ -1,115 +1,19 @@
 {
   "usuarios": [
     {
-      "id": "1",
-      "nombre": "penelas21",
-      "email": "xikolas@gmail.com",
-      "password": "penelas",
-      "rut": "21376422-5",
-      "imagen": ""
-    },
-    {
-      "id": "2",
-      "nombre": "Nicolas",
-      "email": "xikolas@gmail.com",
-      "password": "penelas",
-      "rut": "21376422-5",
-      "imagen": ""
-    },
-    {
-      "id": "b1b0",
-      "nombre": "nicolasjiji",
-      "email": "ni.vasquezc@gmail.com",
-      "rut": "",
-      "password": "hoLaa123",
-      "isactive": true
-    },
-    {
-      "id": "3e25",
-      "nombre": "xavier",
-      "email": "elxaviloko@gmail.com",
-      "rut": "",
-      "password": "xaviReloco123",
-      "isactive": true
-    },
-    {
-      "id": "a92d",
-      "nombre": "sadasdsa",
-      "email": "aasdsd@gmail.com",
-      "rut": "",
-      "password": "hoLaa123",
-      "isactive": true
-    },
-    {
-      "id": "8b91",
-      "nombre": "joakoo",
-      "email": "juakitopedorro@gmail.com",
-      "rut": "",
-      "password": "Pedos123",
-      "isactive": true
-    },
-    {
       "id": "be42",
       "nombre": "nicolasjeje",
       "email": "jejelas@gmail.com",
-      "rut": "",
-      "password": "hoLaa123.",
-      "isactive": true
-    },
-    {
-      "id": "0c4f",
-      "nombre": "xavierliberona",
-      "email": "xavi1234@gmail.com",
-      "rut": "",
-      "password": "hoLaa123.",
-      "isactive": true
-    },
-    {
-      "id": "f17f",
-      "nombre": "nicolasyeye",
-      "email": "kasdnbaskjbskjf@duocuc.cl",
-      "rut": "213764225",
-      "password": "hoLaa123.",
-      "isactive": true
-    },
-    {
-      "id": "ebc2",
-      "nombre": "mauricioElGaticas",
-      "email": "mauriciogatita@gmail.com",
-      "rut": "213764225",
-      "password": "hoLaa123.",
-      "isactive": true
-    },
-    {
-      "id": "c603",
-      "nombre": "nicolasnuevousuario",
-      "email": "naikolas@gmail.com",
-      "rut": "210948910",
-      "password": "hoLaa123.",
-      "isactive": true
-    },
-    {
-      "id": "2b56",
-      "nombre": "keketo",
-      "email": "ni.vasquezc@duocuc.cl",
-      "rut": "213764225",
-      "password": "hoLaa123.",
-      "isactive": true
-    },
-    {
-      "id": "30a7",
-      "nombre": "conchetumare",
-      "email": "queteimporta@gmail.com",
-      "rut": "jejelas@gmail.com+",
+      "rut": "23432236-1",
       "password": "hoLaa123.",
       "isactive": true
     },
     {
       "id": "882b",
-      "nombre": "mauriciootaku",
-      "email": "mauriotakumax@gmail.com",
-      "rut": "213764225",
-      "password": "hoLaa123.",
+      "nombre": "mauricioo",
+      "email": "Test123@gmail.com",
+      "rut": "21376422-5",
+      "password": "Testeo12.",
       "isactive": true
     }
   ],
@@ -556,6 +460,20 @@
       "fechaEvento": "28/04/2025",
       "rutUsuario": "21376422",
       "emailUsuario": "mauriotakumax@gmail.com"
+    },
+    {
+      "id": "89c0",
+      "nombreEvento": "Blockchain y Criptomonedas",
+      "fechaEvento": "12/03/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
+    },
+    {
+      "id": "b242",
+      "nombreEvento": "Conferencia Angular",
+      "fechaEvento": "12/12/2024",
+      "rutUsuario": "21376422",
+      "emailUsuario": "Test123@gmail.com"
     }
   ]
 }

@@ -17,8 +17,9 @@ export interface InscripcionDatos {
   providedIn: 'root'
 })
 export class EventosService {
-  private jsonURL = `${environment.apiUrl}/eventos`; // URL para obtener eventos
-  private inscripcionURL = `${environment.apiUrl}/asistencias`; // URL para manejar inscripciones
+  private jsonURL = `${environment.apiUrl}/eventos`;
+  private inscripcionURL = `${environment.apiUrl}/asistencias`;
+  private eventosRegistrados: IEvent[] = [];
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
@@ -68,5 +69,17 @@ export class EventosService {
         return of(false); // Devuelve false si hay un error
       })
     );
+  }
+
+  getEventosRegistrados(): IEvent[] {
+    return this.eventosRegistrados;
+  }
+
+  eliminarEvento(eventoId: number): void {
+    this.eventosRegistrados = this.eventosRegistrados.filter(evento => +evento.id !== eventoId);
+  }
+
+  registrarEvento(evento: IEvent): void {
+    this.eventosRegistrados.push(evento);
   }
 }
