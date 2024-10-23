@@ -28,6 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'detalle',
+    canActivate: [AuthGuard], 
     loadChildren: () => import('./detalle/detalle.module').then( m => m.DetallePageModule)
   },
   {
@@ -42,19 +43,28 @@ const routes: Routes = [
   },
   {
     path: 'deta-usuarios/:nombre',
+    canActivate: [AuthGuard], 
     loadChildren: () => import('./pages/deta-usuarios/deta-usuarios.module').then( m => m.DetaUsuariosPageModule)
   },
   {
     path: 'event-detail',
+    canActivate: [AuthGuard], 
     loadChildren: () => import('./event-detail/event-detail.module').then( m => m.EventDetailPageModule)
   },
   {
     path: 'deta-usuarios',
     canActivate: [AuthGuard], 
     loadChildren: () => import('./pages/deta-usuarios/deta-usuarios.module').then(m => m.DetaUsuariosPageModule)
-  },  {
+  },
+  {
     path: 'qr-modal',
+    canActivate: [AuthGuard], 
     loadChildren: () => import('./qr-modal/qr-modal.module').then( m => m.QrModalPageModule)
+  },
+  {
+    path: 'eventos-registrados',
+    canActivate: [AuthGuard], 
+    loadChildren: () => import('./pages/eventos-registrados/eventos-registrados.module').then( m => m.EventosRegistradosPageModule)
   }
 
 ];

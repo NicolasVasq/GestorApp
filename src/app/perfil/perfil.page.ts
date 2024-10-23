@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { IUser } from 'src/interfaces/usuarios';
+import { Router } from '@angular/router';
 
 interface Evento {
   titulo: string;
@@ -18,7 +19,7 @@ export class PerfilPage implements OnInit {
   eventosRegistrados: Evento[] = [];
   usuario: IUser | undefined;
 
-  constructor(private authService: AuthService, private formBuilder: FormBuilder) {
+  constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) {
     this.usuarioForm = this.formBuilder.group({
       id: [0],
       nombre: [{ value: '', disabled: true }, Validators.required],
@@ -51,5 +52,9 @@ export class PerfilPage implements OnInit {
       { titulo: 'Seminario de Ciberseguridad', fecha: '22 de Octubre, 2024' },
       { titulo: 'Taller de Inteligencia Artificial', fecha: '5 de Noviembre, 2024' }
     ];
+  }
+
+  redirigirUpdate() {
+    this.router.navigate(['/modificar-perfil']);
   }
 }
