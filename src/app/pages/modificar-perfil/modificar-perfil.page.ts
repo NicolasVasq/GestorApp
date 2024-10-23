@@ -31,8 +31,8 @@ export class ModificarPerfilPage implements OnInit {
       nombre: [{ value: '', disabled: true }, Validators.required],
       email: [{ value: '', disabled: true }, [Validators.required, Validators.email]],
       rut: [{ value: '', disabled: true }, Validators.required],
-      passwordActual: ['', Validators.required], // Campo para la contraseña actual
-      nuevaPassword: ['', [Validators.required, Validators.minLength(8)]] // Campo para la nueva contraseña
+      passwordActual: ['', Validators.required],
+      nuevaPassword: ['', [Validators.required, Validators.minLength(8)]]
     });
 
     this.activated.queryParams.subscribe(param => {
@@ -51,16 +51,13 @@ export class ModificarPerfilPage implements OnInit {
     const passwordActual = this.usuarioForm.value.passwordActual;
     const nuevaPassword = this.usuarioForm.value.nuevaPassword;
 
-    // Verificar la contraseña actual
     if (this.usuario.password !== passwordActual) {
       console.error('La contraseña actual es incorrecta.');
       return;
     }
 
-    // Actualizar la contraseña
     this.usuario.password = nuevaPassword;
 
-    // Actualiza el usuario usando el servicio
     this.auth.putUsuarios(this.usuario).subscribe(response => {
       console.log('Usuario actualizado:', response);
       this.regresar(); 
