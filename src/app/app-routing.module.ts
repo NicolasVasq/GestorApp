@@ -41,10 +41,7 @@ const routes: Routes = [
     path: 'eliminar/:id',
     loadChildren: () => import('./pages/eliminar/eliminar.module').then( m => m.EliminarPageModule)
   },
-  {
-    path: 'listar',
-    loadChildren: () => import('./pages/listar/listar.module').then( m => m.ListarPageModule)
-  },
+
   {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
@@ -52,6 +49,18 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'modificar-perfil',
+    loadChildren: () => import('./pages/modificar-perfil/modificar-perfil.module').then( m => m.ModificarPerfilPageModule)
+  },
+  {
+    path: 'get-users',
+    loadChildren: () => import('./pages/get-users/get-users.module').then( m => m.GetUsersPageModule)
+  },
+  {
+    path: 'deta-usuarios/:nombre',
+    loadChildren: () => import('./pages/deta-usuarios/deta-usuarios.module').then( m => m.DetaUsuariosPageModule)
   },
 ];
 @NgModule({

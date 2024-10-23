@@ -1,125 +1,85 @@
-/* Fondo animado */
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+/* Colores */
+:root {
+  --ion-color-primary: #007BFF; /* Azul metálico */
+  --ion-color-light: #FFFFFF; /* Blanco */
 }
 
+/* Estilos del toolbar */
+.toolbar {
+  background: linear-gradient(90deg, #007BFF 0%, #0056b3 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenido del perfil */
 .profile-content {
-  --background: linear-gradient(270deg, #064180, #1a2b68, #0d0a27);
-  background-size: 600% 600%;
-  animation: gradient-animation 10s ease infinite;
+  background-color: var(--ion-color-light);
   padding: 20px;
-  min-height: 100vh;
-  overflow-y: auto; /* Habilitar scroll cuando el contenido sea mayor que la pantalla */
 }
 
-/* Cabecera del título */
-.header-title {
-  font-size: 28px;
-  font-weight: bold;
-  color: #ffffff;
-  text-align: center;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
-}
-
-/* Sección de foto de perfil */
+/* Encabezado del perfil */
 .profile-header {
   text-align: center;
   margin-bottom: 20px;
 }
 
+/* Avatar */
 .profile-avatar {
-  margin: 0 auto;
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 4px solid #ffffff;
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  border: 4px solid #007BFF;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.5);
 }
 
-.profile-avatar:hover {
-  transform: scale(1.05);
-}
-
+/* Nombre y username */
 .profile-name {
-  color: #00FFD1;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
-  margin-top: 10px;
+  color: #007BFF;
+  margin: 10px 0;
 }
 
 .profile-username {
-  color: #ffffff99;
-  font-size: 16px;
+  font-size: 14px;
+  color: gray;
 }
 
-/* Sección de datos personales */
-.profile-details ion-item {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  border-radius: 12px;
-  margin-bottom: 15px;
-  --padding-start: 12px;
-  --padding-end: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Detalles del perfil */
+.profile-details {
+  margin-top: 10px;
 }
 
-.profile-details ion-label {
-  color: #ffffff;
-  font-weight: bold;
+.profile-item {
+  background: rgba(0, 123, 255, 0.1);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: background 0.3s;
 }
 
-.profile-details ion-text {
-  color: #ffffffcc;
+.profile-item:hover {
+  background: rgba(0, 123, 255, 0.2);
 }
 
-/* Sección de eventos registrados */
+/* Sección de eventos */
 .events-section {
-  margin-top: 30px;
-  width: 100%;
+  margin-top: 20px;
 }
 
 .events-title {
-  color: #ffffff;
   font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 20px;
+  color: #007BFF;
+  margin-bottom: 10px;
 }
 
-.events-section ion-item {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  --padding-start: 12px;
-  --padding-end: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Items de eventos */
+.event-item {
+  background: rgba(0, 123, 255, 0.1);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: background 0.3s;
 }
 
-.events-section ion-label h2 {
-  color: #00FFD1;
-  font-size: 18px;
+.event-item:hover {
+  background: rgba(0, 123, 255, 0.2);
 }
 
-.events-section ion-label p {
-  color: #ffffff99;
-}
-
-/* Animaciones para los eventos */
-.events-section ion-item {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.events-section ion-item:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.5);
+h2, p {
+  margin: 0;
 }

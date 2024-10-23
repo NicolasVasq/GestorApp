@@ -1,7 +1,7 @@
 //get, put,delete
 
 export interface IUser {
-    id: number;  
+    id: string;  
     nombre: string;
     email: string;
     password: string;

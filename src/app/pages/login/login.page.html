@@ -41,6 +41,11 @@
           <div *ngIf="loginForm.get('password')?.hasError('required')">*Contraseña es obligatoria</div>
           <div *ngIf="loginForm.get('password')?.hasError('minlength')">*Contraseña debe tener mínimo 8 caracteres</div>
         </div>
+
+        <!-- Mensaje de error general si el inicio de sesión falla -->
+        <div *ngIf="loginError" style="color: red; text-align: center;">
+          {{ loginError }}
+        </div>
       
         <div style="text-align: center;">
           <ion-button type="submit" [disabled]="!loginForm.valid" shape="round" color="primary">Iniciar Sesion</ion-button>

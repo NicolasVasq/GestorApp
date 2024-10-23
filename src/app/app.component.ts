@@ -22,7 +22,7 @@ export class AppComponent {
     ,
     {icon:'calendar-outline',
       name:'Actualizar perfil',
-      redirecTo:'/actualizar'}
+      redirecTo:'/get-users'}
     ,
     
   ]

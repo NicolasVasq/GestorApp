@@ -15,7 +15,7 @@ export class LoginPage implements OnInit {
 
   userdata: IUser[] = [];
   usuario: IUser = {
-    id: 0,
+    id: "",
     nombre: "",
     email: "",
     rut: "",
@@ -24,16 +24,17 @@ export class LoginPage implements OnInit {
   };
 
   loginForm: FormGroup; 
+  loginError: string | null = null; // Nueva propiedad para manejar errores de inicio de sesión
 
   constructor(private alertcontroller: AlertController,
               private router: Router,
               private toast: ToastController,
               private authservice: AuthService,
               private fbuilder: FormBuilder) {
-                this.loginForm = fbuilder.group({ 
-                  'email': new FormControl("", [Validators.required, Validators.email]), // Cambiado a 'email'
-                  'password': new FormControl("", [Validators.required, Validators.minLength(8)])
-                });
+    this.loginForm = fbuilder.group({ 
+      'email': new FormControl("", [Validators.required, Validators.email]),
+      'password': new FormControl("", [Validators.required, Validators.minLength(8)])
+    });
   }
 
   ngOnInit() {}
@@ -45,14 +46,13 @@ export class LoginPage implements OnInit {
   
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
-  
-    console.log('Intentando iniciar sesión con:', email, password); // Log para depuración
-  
+
+    this.loginError = null; // Reinicia el mensaje de error
+
     this.authservice.GetUserByEmail(email).subscribe(
       resp => { 
         this.userdata = resp;
-        console.log('Respuesta de API:', this.userdata);
-  
+
         if (this.userdata.length === 0) {
           this.loginForm.reset();
           this.UsuarioNoExiste();
@@ -60,8 +60,7 @@ export class LoginPage implements OnInit {
         }
   
         const userFromApi = this.userdata[0];
-        console.log('Usuario desde la API:', userFromApi); // Verificar este log
-  
+
         if (userFromApi) {
           this.usuario = {
             id: userFromApi.id,
@@ -73,31 +72,30 @@ export class LoginPage implements OnInit {
           };
   
           // Verificar contraseña y estado activo
-          console.log('Contraseña del usuario:', this.usuario.password); // Log para verificar
-          console.log('Estado activo:', this.usuario.isactive); // Log para verificar
-  
           if (this.usuario.password !== password) {
             this.loginForm.reset();
-            this.ErrorUsuario(); 
+            this.loginError = 'Credenciales incorrectas'; // Establece mensaje de error
             return;
           }
+
           if (!this.usuario.isactive) {
             this.loginForm.reset();
             this.UsuarioInactivo();
             return;
           }
+
           this.IniciarSesion(this.usuario);
         }
       },
       error => {
         console.error('Error al obtener usuario:', error);
-        this.ErrorUsuario();
+        this.loginError = 'Error en el servidor, por favor intente más tarde'; // Mensaje de error
       }
     );
   }
   
-
   private IniciarSesion(usuario: IUser) {
+    sessionStorage.setItem('id', usuario.id.toString());
     sessionStorage.setItem('nombre', usuario.nombre);
     sessionStorage.setItem('password', usuario.password);
     sessionStorage.setItem('ingresado', 'true');
@@ -122,15 +120,6 @@ export class LoginPage implements OnInit {
     alerta.present();
   }
 
-  async ErrorUsuario() {
-    const alerta = await this.alertcontroller.create({ 
-      header: 'Error..',
-      message: 'Revise sus credenciales',
-      buttons: ['OK']
-    });
-    alerta.present();
-  }
-
   async UsuarioNoExiste() {
     const alerta = await this.alertcontroller.create({ 
       header: 'No existe...',
@@ -141,6 +130,6 @@ export class LoginPage implements OnInit {
   }
 
   navigateToRegister() {
-    this.router.navigate(['/register']); // 
+    this.router.navigate(['/register']); 
   }
 }

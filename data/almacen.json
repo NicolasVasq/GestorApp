@@ -2,7 +2,7 @@
   "usuarios": [
     {
       "id": "1",
-      "nombre": "Nicolas",
+      "nombre": "penelas",
       "email": "xikolas@gmail.com",
       "password": "penelas",
       "rut": "21376422-5",
@@ -18,7 +18,7 @@
     },
     {
       "id": "b1b0",
-      "nombre": "nicolas",
+      "nombre": "nicolasjiji",
       "email": "ni.vasquezc@gmail.com",
       "rut": "",
       "password": "hoLaa123",
@@ -63,6 +63,14 @@
       "rut": "",
       "password": "hoLaa123.",
       "isactive": true
+    },
+    {
+      "id": "f17f",
+      "nombre": "nicolasyeye",
+      "email": "kasdnbaskjbskjf@duocuc.cl",
+      "rut": "213764225",
+      "password": "hoLaa123.",
+      "isactive": true
     }
   ],
   "eventos": [
@@ -91,12 +99,20 @@
       "imagen": "ekisde"
     },
     {
-      "id": "1",
+      "id": "0czxxz",
       "nombre": "",
       "fecha": "",
       "lugar": "",
-      "descripcion": "cdx",
-      "imagen": "xzcxz"
+      "descripcion": "czc",
+      "imagen": "xzcz"
+    },
+    {
+      "id": "0123",
+      "nombre": "",
+      "fecha": "",
+      "lugar": "",
+      "descripcion": "jajajjajajakakakakaka",
+      "imagen": "imagen.jpg"
     }
   ]
 }
