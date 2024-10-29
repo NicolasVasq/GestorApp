@@ -72,7 +72,7 @@ export class EventDetailPage implements OnInit {
     }
   
     if (this.nuevoComentario.trim() === '') {
-      return; // No hacer nada si el comentario está vacío
+      return;
     }
   
     const usuarioId = this.authService.getUserId();
@@ -82,9 +82,9 @@ export class EventDetailPage implements OnInit {
     }
   
     const nuevoComentario: Comentario = {
-      id: 0, // O el ID que maneje tu API
+      id: 0,
       texto: this.nuevoComentario,
-      fecha: new Date().toISOString(), // Formato estándar
+      fecha: new Date().toISOString(), 
       usuarioId: usuarioId,
       eventoId: this.evento?.id || ''
     };

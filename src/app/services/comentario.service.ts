@@ -10,23 +10,20 @@ import { switchMap, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ComentarioService {
-  private comentariosUrl = 'http://localhost:3000/comentarios';  // URL donde se almacenan los comentarios
+  private comentariosUrl = 'http://localhost:3000/comentarios';
 
   constructor(private http: HttpClient, private authService: AuthService,
               private eventosService: EventosService) { }
 
-  // Obtener todos los comentarios
   obtenerComentarios(): Observable<Comentario[]> {
     return this.http.get<Comentario[]>(this.comentariosUrl).pipe(
       catchError(error => {
         console.error('Error al obtener comentarios:', error);
-        return of([]); // Retorna un arreglo vacío en caso de error
+        return of([]);
       })
     );
   }
 
-
-  // Agregar un nuevo comentario
   agregarComentario(eventoId: string, comentario: Comentario): Observable<Comentario> {
     const usuarioId = this.authService.getUserId();
     
