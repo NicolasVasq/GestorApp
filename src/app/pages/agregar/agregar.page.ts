@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class AgregarPage implements OnInit {
 
   newIEvent: IEvent = {
-    id: 0,  // Asignar un valor numérico predeterminado
+    id: "",  // Asignar un valor numérico predeterminado
     nombre: "",
     fecha: "",
     lugar: "",

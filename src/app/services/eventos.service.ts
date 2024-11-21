@@ -81,4 +81,15 @@ export class EventosService {
   registrarEvento(evento: IEvent): void {
     this.eventosRegistrados.push(evento);
   }
+  borrarEvento(eventoId: string): Observable<any> {
+    const url = `${this.jsonURL}/${eventoId}`;  // Suponiendo que la URL es algo como '/eventos/{eventoId}'
+    
+    return this.http.delete(url).pipe(
+      catchError(error => {
+        console.error('Error al eliminar el evento:', error);
+        return throwError(error);
+      })
+    );
+  }
+ 
 }

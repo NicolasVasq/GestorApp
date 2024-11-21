@@ -65,7 +65,19 @@ const routes: Routes = [
     path: 'eventos-registrados',
     canActivate: [AuthGuard], 
     loadChildren: () => import('./pages/eventos-registrados/eventos-registrados.module').then( m => m.EventosRegistradosPageModule)
-  }
+  },
+  {
+    path: 'pages/agregar',
+    loadChildren: () => import('./pages/agregar/agregar.module').then(m => m.AgregarPageModule)
+  },
+  {
+    path: 'pages/actualizar/:id',
+    loadChildren: () => import('./pages/actualizar/actualizar.module').then( m => m.ActualizarPageModule)
+  },
+  {
+    path: 'eliminar/:id',
+    loadChildren: () => import('./pages/eliminar/eliminar.module').then( m => m.EliminarPageModule)
+  },
 
 ];
 

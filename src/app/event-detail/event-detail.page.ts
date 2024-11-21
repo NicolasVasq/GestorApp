@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';  // Importación correcta
 import { EventosService } from '../services/eventos.service'; 
 import { IEvent } from 'src/interfaces/ItEvent';
 import { ComentarioService } from '../services/comentario.service';  
 import { Comentario } from 'src/interfaces/comentario'; 
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';  // Asegúrate de importar Router si lo vas a usar
 
 @Component({
   selector: 'app-event-detail',
@@ -18,14 +19,15 @@ export class EventDetailPage implements OnInit {
   puedeComentar: boolean = false;
 
   constructor(
-    private route: ActivatedRoute,
+    private route: ActivatedRoute, // Cambiado de router a route
     private eventosService: EventosService,
     private comentarioService: ComentarioService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router  // Asegúrate de tener Router inyectado si lo vas a usar
   ) {}
 
   ngOnInit() {
-    const eventoId = this.route.snapshot.paramMap.get('id'); 
+    const eventoId = this.route.snapshot.paramMap.get('id');  // Cambiado router a route
     if (eventoId) {
       this.eventosService.getEventos().subscribe((data: IEvent[]) => {
         this.evento = data.find(e => e.id.toString() === eventoId);
@@ -70,17 +72,17 @@ export class EventDetailPage implements OnInit {
       alert('Debes estar inscrito en el evento para poder comentar.');
       return;
     }
-  
+
     if (this.nuevoComentario.trim() === '') {
       return;
     }
-  
+
     const usuarioId = this.authService.getUserId();
     if (!usuarioId) {
       console.error('No se encontró el ID del usuario logueado.');
       return; 
     }
-  
+
     const nuevoComentario: Comentario = {
       id: 0,
       texto: this.nuevoComentario,
@@ -88,7 +90,7 @@ export class EventDetailPage implements OnInit {
       usuarioId: usuarioId,
       eventoId: this.evento?.id || ''
     };
-  
+
     this.comentarioService.agregarComentario(this.evento?.id || '', nuevoComentario).subscribe(
       (comentarioGuardado) => {
         this.comentarios.push(comentarioGuardado);
@@ -99,6 +101,24 @@ export class EventDetailPage implements OnInit {
         alert('Error al agregar el comentario: ' + error);
       }
     );
+  }
+
+  borrarEvento() {
+    if (this.evento && confirm('¿Estás seguro de que deseas eliminar este evento?')) {
+      this.eventosService.borrarEvento(this.evento.id).subscribe(() => {
+        console.log('Evento eliminado');
+        // Redirige al listado de eventos
+        this.router.navigateByUrl('/tabs/tab2');  // Aquí está el uso correcto de router.navigateByUrl
+      }, (error) => {
+        console.error('Error al eliminar el evento:', error);
+      });
+    }
+  }
+
+  goToEditar(){
+    if (this.evento) {
+      this.router.navigate([`/pages/actualizar/${this.evento.id}`]);
+    }
   }
   
 }

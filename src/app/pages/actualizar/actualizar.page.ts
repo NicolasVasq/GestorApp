@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApicrudService } from 'src/app/services/apicrud.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-actualizar',
@@ -9,14 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./actualizar.page.scss'],
 })
 export class ActualizarPage implements OnInit {
-  // Objeto evento
+  // Objeto evento con los tres campos relevantes
   evento = {
     id: 0,
-    nombre: "",
-    fecha: "",
-    lugar: "",
-    imagen: "",
-    descripcion: ""
+    descripcion: "",
+    imagen: ""
   };
 
   constructor(
@@ -24,6 +20,7 @@ export class ActualizarPage implements OnInit {
     private apicrud: ApicrudService, 
     private router: Router
   ) {
+    // Si el evento fue pasado como parámetro en la URL
     this.activated.queryParams.subscribe(param => {
       if (param['eventos']) {
         this.evento = JSON.parse(param['eventos']);  // Asignar todos los valores del evento
@@ -33,13 +30,14 @@ export class ActualizarPage implements OnInit {
 
   ngOnInit() {}
 
+  // Método para actualizar el evento
   actualizar() {
-    // Asegúrate de que todos los campos estén correctamente rellenados antes de enviar la actualización
-    if (this.evento.id && this.evento.nombre && this.evento.descripcion) {
+    // Verificar que todos los campos necesarios estén completos
+    if (this.evento.id && this.evento.descripcion && this.evento.imagen) {
       this.apicrud.putEventos(this.evento).subscribe(
         response => {
           console.log('Evento actualizado con éxito', response);
-          // Solo redirige si la actualización fue exitosa
+          // Redirigir al listado de eventos tras la actualización
           this.router.navigateByUrl('/tabs/tab2');
         },
         error => {
@@ -47,7 +45,9 @@ export class ActualizarPage implements OnInit {
         }
       );
     } else {
+      // Si falta algún campo necesario
       console.log('Faltan campos por completar');
+      alert('Por favor complete todos los campos');
     }
   }
 }

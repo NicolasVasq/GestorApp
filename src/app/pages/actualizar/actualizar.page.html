@@ -8,22 +8,21 @@
   <form>
     <ion-item lines="full">
       <ion-label position="floating">Id</ion-label>
-      <ion-input type="text" name="tipoN" [(ngModel)]="evento.id" required></ion-input>
+      <ion-input type="text" name="tipoId" [(ngModel)]="evento.id" required></ion-input>
     </ion-item>
 
     <ion-item lines="full">
       <ion-label position="floating">Descripción</ion-label>
-      <ion-input type="text" name="tipoD" [(ngModel)]="evento.descripcion" required></ion-input>
+      <ion-input type="text" name="tipoDescripcion" [(ngModel)]="evento.descripcion" required></ion-input>
     </ion-item>
 
     <ion-item lines="full">
       <ion-label position="floating">Imagen</ion-label>
-      <ion-input type="text" name="tipoI" [(ngModel)]="evento.imagen" required></ion-input>
+      <ion-input type="text" name="tipoImagen" [(ngModel)]="evento.imagen" required></ion-input>
     </ion-item>
-
-    <!-- Botón para actualizar -->
   </form>
 
+  <!-- Botón para actualizar -->
   <div style="text-align: center; margin-top: 20px;">
     <ion-button (click)="actualizar()" expand="block" fill="solid" shape="round">
       Actualizar Evento

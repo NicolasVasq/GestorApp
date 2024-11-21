@@ -130,4 +130,7 @@ export class Tab2Page implements OnInit {
       console.error('No se encontró el ID del usuario logueado.');
     }
   }
+  goToAgregar(){
+    this.router.navigate(['/pages/agregar']);
+  }
 }
