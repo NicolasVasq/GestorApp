@@ -1,13 +1,15 @@
+
+//get, put, delete
 export interface IEvent {
-    id: string  ;
+    id: number;
     nombre: string;
     fecha: string;
     lugar: string;
     descripcion: string;
     imagen: string; 
-    puedeComentar?: boolean;
   }
 
+//post
 
 export interface ICrearEvent {
     nombre: string;

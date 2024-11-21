@@ -32,7 +32,16 @@
       <ion-text>{{ usuario.rut }}</ion-text>
     </ion-item>
   </ion-list>
-  <ion-button (click)="redirigirUpdate()" expand="block" fill="clear" shape="round">
-    Cambiar Datos
-  </ion-button>
+
+  <div class="events-section">
+    <h3 class="events-title">Eventos Registrados</h3>
+    <ion-list>
+      <ion-item *ngFor="let evento of eventosRegistrados">
+        <ion-label>
+          <h2>{{ evento.titulo }}</h2>
+          <p>{{ evento.fecha }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

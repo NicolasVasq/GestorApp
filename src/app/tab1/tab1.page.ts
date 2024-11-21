@@ -30,7 +30,7 @@ export class Tab1Page {
   }
 
   redirigirATab2() {
-    this.router.navigate(['/tabs/tab2']);
+    this.router.navigate(['/tab2']);
   }
 
   mostrarMenu(){

@@ -30,10 +30,10 @@ export class RegisterPage implements OnInit {
     this.registroForm = this.fBuilder.group({
       'nombre': new FormControl("", [Validators.required, Validators.minLength(6)]),
       'email': new FormControl("", [Validators.required, Validators.email]),
-      'rut': new FormControl("", [Validators.required]),
+      'rut': new FormControl("", [Validators.required]), // Agregado
       'password': new FormControl("", [
         Validators.required,
-        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[^\w\s]).{8,}$/) 
+        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[^\w\s]).{8,}$/) // Permitir caracteres especiales
       ])
     });
   }
@@ -46,6 +46,7 @@ export class RegisterPage implements OnInit {
         resp => {
           this.userdata = resp;
 
+          // Verificar si userdata es un array
           if (Array.isArray(this.userdata) && this.userdata.length > 0) {
             this.registroForm.reset();
             this.errorDuplicidad();
@@ -53,12 +54,12 @@ export class RegisterPage implements OnInit {
             this.nuevoUsuario.nombre = this.registroForm.value.nombre;
             this.nuevoUsuario.password = this.registroForm.value.password;
             this.nuevoUsuario.email = this.registroForm.value.email;
-            this.nuevoUsuario.rut = this.registroForm.value.rut; 
+            this.nuevoUsuario.rut = this.registroForm.value.rut; // Agregado
             this.nuevoUsuario.isactive = true;
 
             this.authservice.PostUsuario(this.nuevoUsuario).subscribe(() => {
               this.mostrarMensaje();
-              this.router.navigateByUrl('/login'); 
+              this.router.navigateByUrl('/login'); // Mover la redirección aquí
             }, error => {
               console.error('Error al crear el usuario:', error);
               this.mostrarError('No se pudo crear el usuario. Intente de nuevo.');

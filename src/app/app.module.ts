@@ -19,7 +19,7 @@ import { QRCodeModule } from 'angularx-qrcode';
     IonicModule.forRoot(),
     QRCodeModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule  ,// Asegúrate de incluir este módulo aquí
     FormsModule,
     ReactiveFormsModule
   ],

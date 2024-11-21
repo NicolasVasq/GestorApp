@@ -42,6 +42,7 @@
           <div *ngIf="loginForm.get('password')?.hasError('minlength')">*Contraseña debe tener mínimo 8 caracteres</div>
         </div>
 
+        <!-- Mensaje de error general si el inicio de sesión falla -->
         <div *ngIf="loginError" style="color: red; text-align: center;">
           {{ loginError }}
         </div>

@@ -10,7 +10,7 @@ import { IUser } from 'src/interfaces/usuarios';
   styleUrls: ['./deta-usuarios.page.scss'],
 })
 export class DetaUsuariosPage implements OnInit {
-  post: any = {};
+  post: any = {};  // Inicializar como objeto vacío
   usuario: IUser = {
     id: "",  
     nombre: "",
@@ -25,6 +25,7 @@ export class DetaUsuariosPage implements OnInit {
     private ruta: ActivatedRoute,
     private auth: AuthService
   ) {
+    // Leer parámetros al iniciar la página
     this.ruta.queryParams.subscribe(params => {
       if (params['post']) {
         this.post = JSON.parse(params['post']);
@@ -35,10 +36,10 @@ export class DetaUsuariosPage implements OnInit {
   ngOnInit() {}
 
   ionViewWillEnter() {
-    const nombre = this.ruta.snapshot.paramMap.get('nombre');
+    const nombre = this.ruta.snapshot.paramMap.get('nombre'); // Asegúrate de que 'nombre' sea el parámetro correcto
     if (nombre) {
       this.auth.GetUserByUsername(nombre).subscribe((usuario: IUser) => {
-        this.usuario = usuario;
+        this.usuario = usuario; // Ahora esto debe funcionar
       }, error => {
         console.error('Error al obtener el usuario:', error);
       });
@@ -46,15 +47,17 @@ export class DetaUsuariosPage implements OnInit {
   }
 
   actualizarUsuario() {
+    // Actualiza el usuario usando el servicio
     this.auth.putUsuarios(this.usuario).subscribe(response => {
       console.log('Usuario actualizado:', response);
-      this.regresar(); 
+      this.regresar(); // Opcionalmente regresa a la lista
     }, error => {
       console.error('Error al actualizar el usuario:', error);
     });
   }
 
   regresar() {
+    // Redirige a la página de listado
     this.router.navigate(['/get-users']);
   }
 }

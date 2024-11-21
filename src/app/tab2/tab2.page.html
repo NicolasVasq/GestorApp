@@ -1,28 +1,28 @@
 <ion-header>
-  <ion-toolbar >
-    <ion-icon slot="start" name="calendar-number-outline" size="large" style="padding-left: 15px;"></ion-icon>
-    <ion-title>Evetos Proximos</ion-title>
+  <ion-toolbar>
+    <ion-title>Inicio</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="mostrarMenu()">
-        <ion-icon slot="end" name="menu-outline" size="large" color="dark"></ion-icon>
-      </ion-button>
+      <ion-button (click)="goToAgregar()">Crear Evento</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div style="text-align: center;">
+    <h2>Eventos Proximos</h2>
+  </div>
 
-  <ion-list>
-    <ion-item *ngFor="let evento of eventos">
-      <ion-thumbnail slot="start">
-        <img [src]="'assets/img/' + evento.imagen" alt="{{ evento.nombre }}" />
-      </ion-thumbnail>
-      <ion-label (click)="verDetalle(evento)">
-        <h2>{{ evento.nombre }}</h2>
-        <p>{{ evento.fecha }} - {{ evento.lugar }}</p>
-        <p>{{ evento.descripcion }}</p>
-      </ion-label>
-      <ion-button (click)="inscribirme(evento)" color="success"><ion-icon name="checkmark-outline"></ion-icon></ion-button>
-    </ion-item>
-  </ion-list>
+  <ion-card (click)="buscarPost(e)" *ngFor="let e of eventos">
+    <ion-card-header>
+      <ion-card-subtitle>ID: {{ e.id }}</ion-card-subtitle>
+      <ion-card-title>{{ e.nombre }}</ion-card-title>
+    </ion-card-header>
+    
+    <ion-card-content>
+      <p><strong>Fecha:</strong> {{ e.fecha }}</p>
+      <p><strong>Lugar:</strong> {{ e.lugar }}</p>
+      <p><strong>Descripción:</strong> {{ e.descripcion }}</p>
+      <p *ngIf="e.imagen"><strong>Imagen:</strong> {{ e.imagen }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

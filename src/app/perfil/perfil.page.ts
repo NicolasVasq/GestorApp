@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { IUser } from 'src/interfaces/usuarios';
-import { Router } from '@angular/router';
 
 interface Evento {
   titulo: string;
@@ -17,9 +16,9 @@ interface Evento {
 export class PerfilPage implements OnInit {
   usuarioForm: FormGroup;
   eventosRegistrados: Evento[] = [];
-  usuario: IUser | undefined;
+  usuario: IUser | undefined; // Se declara como undefined
 
-  constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) {
+  constructor(private authService: AuthService, private formBuilder: FormBuilder) {
     this.usuarioForm = this.formBuilder.group({
       id: [0],
       nombre: [{ value: '', disabled: true }, Validators.required],
@@ -37,8 +36,8 @@ export class PerfilPage implements OnInit {
   obtenerUsuario() {
     this.authService.obtenerUsuarioActual().subscribe(
       (data: IUser) => {
-        this.usuarioForm.patchValue(data);
-        this.usuario = data; 
+        this.usuarioForm.patchValue(data); // Cargar datos en el formulario
+        this.usuario = data; // Asigna los datos del usuario
       },
       error => {
         console.error('Error al obtener los datos del usuario:', error);
@@ -52,9 +51,5 @@ export class PerfilPage implements OnInit {
       { titulo: 'Seminario de Ciberseguridad', fecha: '22 de Octubre, 2024' },
       { titulo: 'Taller de Inteligencia Artificial', fecha: '5 de Noviembre, 2024' }
     ];
-  }
-
-  redirigirUpdate() {
-    this.router.navigate(['/modificar-perfil']);
   }
 }
