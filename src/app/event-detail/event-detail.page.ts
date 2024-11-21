@@ -6,6 +6,7 @@ import { ComentarioService } from '../services/comentario.service';
 import { Comentario } from 'src/interfaces/comentario'; 
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';  // Asegúrate de importar Router si lo vas a usar
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-event-detail',
@@ -23,7 +24,8 @@ export class EventDetailPage implements OnInit {
     private eventosService: EventosService,
     private comentarioService: ComentarioService,
     private authService: AuthService,
-    private router: Router  // Asegúrate de tener Router inyectado si lo vas a usar
+    private router: Router,  // Asegúrate de tener Router inyectado si lo vas a usar
+    private alertController: AlertController
   ) {}
 
   ngOnInit() {
@@ -103,22 +105,53 @@ export class EventDetailPage implements OnInit {
     );
   }
 
-  borrarEvento() {
-    if (this.evento && confirm('¿Estás seguro de que deseas eliminar este evento?')) {
-      this.eventosService.borrarEvento(this.evento.id).subscribe(() => {
-        console.log('Evento eliminado');
-        // Redirige al listado de eventos
-        this.router.navigateByUrl('/tabs/tab2');  // Aquí está el uso correcto de router.navigateByUrl
-      }, (error) => {
-        console.error('Error al eliminar el evento:', error);
-      });
-    }
+  async borrarEvento() {
+    const alert = await this.alertController.create({
+      header: '¿Estás seguro?',
+      message: 'Este evento se eliminará permanentemente.',
+      cssClass: 'ios-alert', // Estilo específico para iOS
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',  // Estilo secundario (botón cancelación)
+          handler: () => {
+            console.log('El evento no se eliminó');
+          }
+        },
+        {
+          text: 'Sí, borrar',
+          cssClass: 'danger',  // Estilo de botón de peligro (rojo)
+          handler: () => {
+            if (this.evento) {
+              this.eventosService.borrarEvento(this.evento.id).subscribe(() => {
+                console.log('Evento eliminado');
+                // Redirige al listado de eventos
+                this.router.navigateByUrl('/tabs/tab2');
+              }, (error) => {
+                console.error('Error al eliminar el evento:', error);
+              });
+            }
+          }
+        }
+      ]
+    });
+  
+    await alert.present(); // Muestra la alerta
   }
+  
+
+    
 
   goToEditar(){
     if (this.evento) {
       this.router.navigate([`/pages/actualizar/${this.evento.id}`]);
     }
+  }
+
+  isBase64(str: string): boolean {
+    const regex = /^data:image\/(png|jpg|jpeg|gif|bmp|svg\+xml);base64,/;
+    return regex.test(str);
   }
   
 }

@@ -10,6 +10,8 @@ import { ICrearUser,IUser } from 'src/interfaces/usuarios';
 })
 export class ApicrudService {
 
+
+  
   constructor(private httpclient: HttpClient) { }
 
   getIEvent(): Observable<IEvent[]> {
@@ -40,9 +42,6 @@ export class ApicrudService {
     return this.httpclient.put<ICrearUser>(`${environment.apiUrl}/usuarios/${usuario.id}`,usuario);
   }
 
-  ActualizarEvento(evento:any): Observable<ICrearEvent>{
-    return this.httpclient.put<ICrearEvent>(`${environment.apiUrl}/eventos/${evento.id}`,evento);
-  }
   EliminarEvento(evento:any): Observable<ICrearEvent>{
     return this.httpclient.delete<ICrearEvent>(`${environment.apiUrl}/eventos/${evento.id}`);
   }

@@ -133,4 +133,9 @@ export class Tab2Page implements OnInit {
   goToAgregar(){
     this.router.navigate(['/pages/agregar']);
   }
+
+  isBase64(str: string) {
+    const regex = /^data:image\/[a-zA-Z]+;base64,/;
+    return regex.test(str);  // Si coincide con la expresión regular, es base64
+  }
 }

@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>agregar</ion-title>
+    <ion-title>Agregar Evento</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,9 +12,20 @@
   </ion-header>
 
   <form>
+    <!-- Otros campos para el evento (Id, Descripción, etc.) -->
     <ion-item lines="full">
-      <ion-label position="floating">Id</ion-label>
-      <ion-input type="text" name="txtId" [(ngModel)]="newIEvent.id" required></ion-input>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" name="txtId" [(ngModel)]="newIEvent.nombre" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Fecha</ion-label>
+      <ion-input type="text" name="txtId" [(ngModel)]="newIEvent.fecha" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Lugar</ion-label>
+      <ion-input type="text" name="txtId" [(ngModel)]="newIEvent.lugar" required></ion-input>
     </ion-item>
 
     <ion-item lines="full">
@@ -23,13 +34,19 @@
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label position="floating">Imagen</ion-label>
-      <ion-input type="text" name="txtImagen" [(ngModel)]="newIEvent.imagen" required></ion-input>
+      <ion-label position="floating"></ion-label>
+      <!-- Aquí ocultamos el input de tipo archivo -->
+      <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" style="display: none" />
+      
+      <!-- Botón para activar el input de archivo -->
+      <ion-button (click)="fileInput.click()" expand="full" fill="outline" shape="round">
+        Seleccionar Imagen
+      </ion-button>
     </ion-item>
 
     <ion-row>
       <ion-col>
-        <ion-button (click)="crearEvento()" expand="block" fill="clear" shape="round">
+        <ion-button (click)="crearEvento()" expand="block" fill="solid" shape="round">
           Crear Evento
         </ion-button>
       </ion-col>

@@ -6,19 +6,39 @@
   </ion-header>
   
   <form>
+
+
     <ion-item lines="full">
-      <ion-label position="floating">Id</ion-label>
-      <ion-input type="text" name="tipoId" [(ngModel)]="evento.id" required></ion-input>
+      <ion-label position="floating">iD</ion-label>
+      <ion-input type="text" name="tipoId" [(ngModel)]="evento.id" ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" name="tipoId" [(ngModel)]="evento.nombre" ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Fecha</ion-label>
+      <ion-input type="text" name="txtFecha" [(ngModel)]="evento.fecha" ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Lugar</ion-label>
+      <ion-input type="text" name="txtLugar" [(ngModel)]="evento.lugar" ></ion-input>
     </ion-item>
 
     <ion-item lines="full">
       <ion-label position="floating">Descripción</ion-label>
-      <ion-input type="text" name="tipoDescripcion" [(ngModel)]="evento.descripcion" required></ion-input>
+      <ion-input type="text" name="tipoDescripcion" [(ngModel)]="evento.descripcion" ></ion-input>
     </ion-item>
 
     <ion-item lines="full">
       <ion-label position="floating">Imagen</ion-label>
-      <ion-input type="text" name="tipoImagen" [(ngModel)]="evento.imagen" required></ion-input>
+      <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" style="display: none" />
+      <ion-button (click)="fileInput.click()" expand="full" fill="outline" shape="round">
+        Seleccionar Imagen
+      </ion-button>
     </ion-item>
   </form>
 
