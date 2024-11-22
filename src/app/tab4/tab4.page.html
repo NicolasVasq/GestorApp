@@ -1,5 +1,6 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
+      <ion-title>Escaner</ion-title>
       <ion-buttons slot="start">
         <ion-button (click)="regresar()">
           Regresar
@@ -9,15 +10,15 @@
 </ion-header>
 
 <ion-content>
-    <ion-list>
-        <ion-item *ngFor="let e of eventos">
-            <ion-label>
-                <h3 style="text-align: right;"> Id Evento: {{e.id}}</h3>
-                <h2> Nombre: {{e.nombre}}</h2>
-                <h3> Descripcion: {{e.descripcion}}</h3>
-            </ion-label>
-        </ion-item>
-    </ion-list>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button (click)="leerQr()" expand="block" fill="solid" color="success">
+            Escaner
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
     
 </ion-content>

@@ -1,7 +1,7 @@
-// tab4.page.ts
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 @Component({
   selector: 'app-tab4',
@@ -16,17 +16,18 @@ export class Tab4Page implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getEventos();
+    Camera.requestPermissions();
   }
 
-  getEventos() {
-    this.http.get<any[]>('http://localhost:3000/eventos')
-      .subscribe(response => {
-        this.eventos = response;
-      }, error => {
-        console.error('Error al obtener eventos', error);
-      });
+  async leerQr(){
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Uri,
+      source: CameraSource.Camera
+    })
   }
+  
   regresar(){
     this.router.navigate(['/tabs/tab2'])
   }

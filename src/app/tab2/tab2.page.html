@@ -15,7 +15,6 @@
   <ion-list>
     <ion-item *ngFor="let evento of eventos">
       <ion-thumbnail slot="start">
-        <!-- Aquí verificamos si la imagen es base64 o una ruta -->
         <img *ngIf="isBase64(evento.imagen)" [src]="evento.imagen" alt="{{ evento.nombre }}" />
         <img *ngIf="!isBase64(evento.imagen)" [src]="'assets/img/' + evento.imagen" alt="{{ evento.nombre }}" />
       </ion-thumbnail>
