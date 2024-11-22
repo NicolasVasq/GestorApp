@@ -78,6 +78,10 @@ const routes: Routes = [
     path: 'eliminar/:id',
     loadChildren: () => import('./pages/eliminar/eliminar.module').then( m => m.EliminarPageModule)
   },
+  {
+    path: 'asistentes',
+    loadChildren: () => import('./asistentes/asistentes.module').then( m => m.AsistentesPageModule)
+  },
 
 ];
 

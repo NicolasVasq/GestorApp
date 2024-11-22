@@ -20,7 +20,9 @@ export class AppComponent {
 
   menu: Menu[] = [
     { icon: 'person-outline', name: 'Mi perfil', redirecTo: '/perfil' },
-    { icon: 'calendar-number-outline', name: 'Eventos registrados', redirecTo: '/eventos-registrados' }
+    { icon: 'people-outline', name: 'Lista de asistentes', redirecTo: '/asistentes' },
+    { icon: 'calendar-number-outline', name: 'Eventos registrados', redirecTo: '/eventos-registrados' },
+    { icon: 'list-outline', name: 'Gestión de Eventos', redirecTo: '/lista-event' }
   ];
 
   constructor(private router: Router, private menuCtrl: MenuController) {}

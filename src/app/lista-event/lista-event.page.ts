@@ -9,18 +9,7 @@ import { Evento } from './evento.model';
 })
 export class ListaEventPage implements OnInit {
 
-  eventos: Evento[] = [
-    { id: 1, nombre: 'Conferencia Tech', descripcion: 'Una conferencia sobre tecnología.', fecha: '2024-09-30', hora: '10:00', ubicacion: 'Centro de Convenciones', cupos: 50 },
-    { id: 2, nombre: 'Taller de Fotografía', descripcion: 'Un taller para aprender fotografía.', fecha: '2024-10-10', hora: '14:00', ubicacion: 'Sala 5', cupos: 25 },
-    { id: 3, nombre: 'Feria de Empleo', descripcion: 'Evento para conectar empresas y candidatos.', fecha: '2024-11-01', hora: '09:00', ubicacion: 'Auditorio Principal', cupos: 100 },
-    { id: 4, nombre: 'Maratón de Programación', descripcion: 'Competencia de programación para todos los niveles.', fecha: '2024-12-15', hora: '08:00', ubicacion: 'Sala de Innovación', cupos: 75 },
-    { id: 5, nombre: 'Concierto de Jazz', descripcion: 'Un concierto de jazz con artistas internacionales.', fecha: '2024-11-25', hora: '19:00', ubicacion: 'Teatro Municipal', cupos: 150 },
-    { id: 6, nombre: 'Exposición de Arte Moderno', descripcion: 'Exposición de obras de arte moderno.', fecha: '2024-10-20', hora: '11:00', ubicacion: 'Galería de Arte', cupos: 40 },
-    { id: 7, nombre: 'Curso de Cocina Internacional', descripcion: 'Curso práctico de cocina con chefs internacionales.', fecha: '2024-12-05', hora: '16:00', ubicacion: 'Cocina Gourmet', cupos: 20 },
-    { id: 8, nombre: 'Seminario de Finanzas Personales', descripcion: 'Seminario sobre gestión de finanzas personales y ahorro.', fecha: '2024-11-12', hora: '13:00', ubicacion: 'Sala de Conferencias', cupos: 60 },
-    { id: 9, nombre: 'Noche de Cine Familiar', descripcion: 'Proyección de películas familiares al aire libre.', fecha: '2024-10-31', hora: '18:00', ubicacion: 'Parque Central', cupos: 200 },
-    { id: 10, nombre: 'Torneo de E-Sports', descripcion: 'Competencia de videojuegos con premios para los ganadores.', fecha: '2024-12-22', hora: '12:00', ubicacion: 'Centro de Esports', cupos: 50 },
-  ];
+  eventos: Evento[] = [];
   
 
   constructor(private alertController: AlertController) {}
