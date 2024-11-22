@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { IEvent, ICrearEvent } from 'src/interfaces/ItEvent';
 import { environment } from 'src/environments/environment';
 import { ICrearUser,IUser } from 'src/interfaces/usuarios';
+import { Administrador, ICrearAdmin } from 'src/interfaces/administradores';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,8 @@ export class ApicrudService {
   PostUsuario(newUsuario: ICrearUser): Observable<IUser> {
     return this.httpclient.post<IUser>(`${environment.apiUrl}/usuarios`, newUsuario);
   }
+
+  
   
 
   putEventos(evento:any): Observable<ICrearEvent> {

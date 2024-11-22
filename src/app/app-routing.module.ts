@@ -77,7 +77,15 @@ const routes: Routes = [
   {
     path: 'eliminar/:id',
     loadChildren: () => import('./pages/eliminar/eliminar.module').then( m => m.EliminarPageModule)
+  },  {
+    path: 'registrar-admin',
+    loadChildren: () => import('./pages/registrar-admin/registrar-admin.module').then( m => m.RegistrarAdminPageModule)
   },
+  {
+    path: 'login-admin',
+    loadChildren: () => import('./pages/login-admin/login-admin.module').then( m => m.LoginAdminPageModule)
+  },
+
 
 ];
 

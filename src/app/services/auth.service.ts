@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ICrearUser, IUser } from 'src/interfaces/usuarios';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
+import { ICrearAdmin,Administrador } from 'src/interfaces/administradores';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,20 @@ export class AuthService {
     
     return this.httpclient.get<IUser>(`${environment.apiUrl}/usuarios/${usuarioId}`);
 }
+
+
+  PostAdmin(newAdmin: ICrearAdmin): Observable<Administrador> {
+  return this.httpclient.post<Administrador>(`${environment.apiUrl}/administradores`, newAdmin);
+  }
+
+  getAdministrador(Administrador:any): Observable<Administrador> {
+  return this.httpclient.get<Administrador>(`${environment.apiUrl}/administradores/?nombre=${Administrador}`);
+}
+
+GetAdminByEmail(email: string): Observable<Administrador[]> {
+  return this.httpclient.get<Administrador[]>(`${environment.apiUrl}/administradores?email=${email}`);
+}
+
 
 
   PostUsuario(newUsuario: ICrearUser): Observable<IUser> {
