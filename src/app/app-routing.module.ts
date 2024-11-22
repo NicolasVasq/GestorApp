@@ -85,6 +85,10 @@ const routes: Routes = [
     path: 'login-admin',
     loadChildren: () => import('./pages/login-admin/login-admin.module').then( m => m.LoginAdminPageModule)
   },
+  {
+    path: 'asistentes',
+    loadChildren: () => import('./asistentes/asistentes.module').then( m => m.AsistentesPageModule)
+  },
 
 
 ];
