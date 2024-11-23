@@ -5,6 +5,7 @@ import { ICrearUser, IUser } from 'src/interfaces/usuarios';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { ICrearAdmin,Administrador } from 'src/interfaces/administradores';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -40,17 +41,34 @@ export class AuthService {
 }
 
 
-  PostAdmin(newAdmin: ICrearAdmin): Observable<Administrador> {
+PostAdmin(newAdmin: ICrearAdmin): Observable<Administrador> {
   return this.httpclient.post<Administrador>(`${environment.apiUrl}/administradores`, newAdmin);
-  }
+}
 
   getAdministrador(Administrador:any): Observable<Administrador> {
   return this.httpclient.get<Administrador>(`${environment.apiUrl}/administradores/?nombre=${Administrador}`);
 }
 
 GetAdminByEmail(email: string): Observable<Administrador[]> {
-  return this.httpclient.get<Administrador[]>(`${environment.apiUrl}/administradores?email=${email}`);
+  return this.httpclient.get<Administrador[]>(`${environment.apiUrl}/administradores?email=${email}`).pipe(
+    catchError(error => {
+      console.error("Error en la búsqueda del administrador por correo: ", error);
+      throw new Error('No se pudo obtener los administradores');
+    })
+  );
 }
+
+obtenerAdminActual(): Observable<Administrador> {
+  const adminId = sessionStorage.getItem('id');
+  
+  if (!adminId) {
+      console.error('ID del admin no encontrado en sessionStorage');
+      throw new Error('ID del admin no encontrado');
+  }
+  
+  return this.httpclient.get<Administrador>(`${environment.apiUrl}/administradores/${adminId}`);
+}
+
 
 
 
@@ -60,6 +78,10 @@ GetAdminByEmail(email: string): Observable<Administrador[]> {
 
   putUsuarios(usuario:any): Observable<ICrearUser> {
     return this.httpclient.put<ICrearUser>(`${environment.apiUrl}/usuarios/${usuario.id}`,usuario);
+  }
+
+  putAdmins(administrador:any): Observable<ICrearAdmin> {
+    return this.httpclient.put<ICrearAdmin>(`${environment.apiUrl}/administradores/${administrador.id}`,administrador);
   }
   
   LoggedIn(): boolean {

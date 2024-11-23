@@ -20,6 +20,7 @@ export class LoginAdminPage implements OnInit {
     email: "",
     rut: "",
     password: "",
+    img: "",
     isactive: false
   };
 
@@ -69,6 +70,7 @@ export class LoginAdminPage implements OnInit {
             password: adminFromApi.password,
             email: adminFromApi.email,
             rut: adminFromApi.rut,
+            img: adminFromApi.img,
             isactive: adminFromApi.isactive
           };
   

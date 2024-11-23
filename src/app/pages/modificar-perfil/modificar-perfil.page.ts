@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IUser } from 'src/interfaces/usuarios';
+import { Administrador } from 'src/interfaces/administradores';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,15 +10,16 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./modificar-perfil.page.scss'],
 })
 export class ModificarPerfilPage implements OnInit {
-  usuario: IUser = {
+  administrador: Administrador = {
     id: "",
     nombre: "",
     email: "",
     password: "",
     rut: "",
+    img: "",
     isactive: false 
   };
-  usuarioForm: FormGroup;
+  adminForm: FormGroup;
 
   constructor(
     private activated: ActivatedRoute, 
@@ -26,7 +27,7 @@ export class ModificarPerfilPage implements OnInit {
     private auth: AuthService,
     private formBuilder: FormBuilder
   ) {
-    this.usuarioForm = this.formBuilder.group({
+    this.adminForm = this.formBuilder.group({
       id: [0],
       nombre: [{ value: '', disabled: true }, Validators.required],
       email: [{ value: '', disabled: true }, [Validators.required, Validators.email]],
@@ -37,28 +38,28 @@ export class ModificarPerfilPage implements OnInit {
 
     this.activated.queryParams.subscribe(param => {
       if (param['usuarios']) {
-        this.usuario = JSON.parse(param['usuarios']);
-        this.usuarioForm.patchValue(this.usuario);
+        this.administrador = JSON.parse(param['usuarios']);
+        this.adminForm.patchValue(this.administrador);
       }
     });
   }
 
   ngOnInit() {
-    this.obtenerUsuario();
+    this.obtenerAdmin();
   }
 
   actualizarUsuario() {
-    const passwordActual = this.usuarioForm.value.passwordActual;
-    const nuevaPassword = this.usuarioForm.value.nuevaPassword;
+    const passwordActual = this.adminForm.value.passwordActual;
+    const nuevaPassword = this.adminForm.value.nuevaPassword;
 
-    if (this.usuario.password !== passwordActual) {
+    if (this.administrador.password !== passwordActual) {
       console.error('La contraseña actual es incorrecta.');
       return;
     }
 
-    this.usuario.password = nuevaPassword;
+    this.administrador.password = nuevaPassword;
 
-    this.auth.putUsuarios(this.usuario).subscribe(response => {
+    this.auth.putAdmins(this.administrador).subscribe(response => {
       console.log('Usuario actualizado:', response);
       this.regresar(); 
     }, error => {
@@ -66,11 +67,11 @@ export class ModificarPerfilPage implements OnInit {
     });
   }
 
-  obtenerUsuario() {
-    this.auth.obtenerUsuarioActual().subscribe(
-      (data: IUser) => {
-        this.usuarioForm.patchValue(data);
-        this.usuario = data;
+  obtenerAdmin() {
+    this.auth.obtenerAdminActual().subscribe(
+      (data: Administrador) => {
+        this.adminForm.patchValue(data);
+        this.administrador = data;
       },
       error => {
         console.error('Error al obtener los datos del usuario:', error);

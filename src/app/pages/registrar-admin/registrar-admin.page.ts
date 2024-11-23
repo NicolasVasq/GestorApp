@@ -19,6 +19,7 @@ export class RegistrarAdminPage implements OnInit {
     email: "",
     rut: "",
     password: "",
+    img: "",
     isactive: false
   };
 
@@ -58,10 +59,10 @@ export class RegistrarAdminPage implements OnInit {
             this.nuevoAdmin.rut = this.registroForm.value.rut;
             this.nuevoAdmin.isactive = true;
   
-            // Llamada al método PostAdmin para crear un administrador
+            // Asegúrate de usar PostAdmin para crear el administrador
             this.authservice.PostAdmin(this.nuevoAdmin).subscribe(() => {
               this.mostrarMensaje();
-              this.router.navigateByUrl('/login');
+              this.router.navigateByUrl('/login-admin');
             }, error => {
               console.error('Error al crear el administrador:', error);
               this.mostrarError('No se pudo crear el administrador. Intente de nuevo.');
@@ -75,6 +76,7 @@ export class RegistrarAdminPage implements OnInit {
       );
     }
   }
+  
 
   async mostrarMensaje() {
     const alerta = await this.alertcontroller.create({

@@ -28,8 +28,8 @@ export class ActualizarPage implements OnInit {
     // Obtener el id del evento desde los parámetros de la URL
     this.activated.queryParams.subscribe(param => {
       if (param['id']) {
-        const id = param['id'];  // El id se pasa como parámetro en la URL
-        this.obtenerEvento(id);  // Llamamos al método para obtener los detalles del evento
+        const id = param['id'];  
+        this.obtenerEvento(id);  
       }
     });
   }
@@ -40,7 +40,7 @@ export class ActualizarPage implements OnInit {
   obtenerEvento(id: number) {
     this.apicrud.getEventosId(id).subscribe(
       (response: any) => {
-        this.evento = response;  // Asignamos los datos obtenidos a la variable 'evento'
+        this.evento = response;  
       },
       error => {
         console.error('Error al obtener el evento:', error);
@@ -51,7 +51,7 @@ export class ActualizarPage implements OnInit {
 
   // Método para actualizar el evento
   actualizar() {
-    // Validación de los campos, asegurándonos de que no falten otros campos
+   
     if (!this.evento.nombre || !this.evento.fecha || !this.evento.lugar || !this.evento.descripcion || !this.evento.imagen) {
       console.error('Faltan campos por completar.');
       alert('Por favor complete todos los campos');
@@ -62,7 +62,7 @@ export class ActualizarPage implements OnInit {
     this.apicrud.putEventos(this.evento).subscribe(
       response => {
         console.log('Evento actualizado con éxito:', response);
-        // Redirigir a la página de eventos después de la actualización
+        
         this.router.navigateByUrl('/tabs/tab2');
       },
       error => {
@@ -81,7 +81,7 @@ export class ActualizarPage implements OnInit {
       reader.onload = () => {
         // Convierte la imagen a Base64 y la almacena en el evento
         this.evento.imagen = reader.result as string;
-        this.selectedFile = file; // Almacena el archivo seleccionado
+        this.selectedFile = file; 
         console.log("Imagen convertida a Base64:", this.evento.imagen);
       };
 

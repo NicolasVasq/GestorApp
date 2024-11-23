@@ -101,6 +101,6 @@ export class RegisterPage implements OnInit {
   }
 
   navigateToLogin() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login-admin']);
   }
 }

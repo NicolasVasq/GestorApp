@@ -5,7 +5,7 @@ import { AuthGuard } from './guards/autorizado.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'login-admin',
     pathMatch: 'full'
   },
   {
@@ -77,7 +77,8 @@ const routes: Routes = [
   {
     path: 'eliminar/:id',
     loadChildren: () => import('./pages/eliminar/eliminar.module').then( m => m.EliminarPageModule)
-  },  {
+  },
+  {
     path: 'registrar-admin',
     loadChildren: () => import('./pages/registrar-admin/registrar-admin.module').then( m => m.RegistrarAdminPageModule)
   },

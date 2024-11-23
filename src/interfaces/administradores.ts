@@ -4,6 +4,7 @@ export interface Administrador {
     email: string;
     rut: string;
     password: string;
+    img: string;
     isactive: boolean;
   }
 
@@ -12,5 +13,6 @@ export interface Administrador {
     email: string;
     password: string;
     rut: string;
+    img: string;
     isactive: boolean;
   }

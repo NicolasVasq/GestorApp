@@ -12,17 +12,19 @@
 <ion-content [fullscreen]="true">
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>ID: {{ usuario.id }}</ion-card-subtitle>
+      <ion-card-subtitle>ID: {{ administrador.id }}</ion-card-subtitle>
       <ion-card-title>
-        <ion-input [(ngModel)]="usuario.nombre" placeholder="Nombre"></ion-input>
+        <ion-input [(ngModel)]="administrador.nombre" placeholder="Nombre"></ion-input>
       </ion-card-title>
+
+      
     </ion-card-header>
 
     <ion-card-content>
-      <ion-input [(ngModel)]="usuario.email" placeholder="Email"></ion-input>
+      <ion-input [(ngModel)]="administrador.email" placeholder="Email"></ion-input>
       
-      <ion-input [(ngModel)]="usuarioForm.value.passwordActual" type="password" placeholder="Contraseña Actual"></ion-input>
-      <ion-input [(ngModel)]="usuarioForm.value.nuevaPassword" type="password" placeholder="Nueva Contraseña"></ion-input>
+      <ion-input [(ngModel)]="adminForm.value.passwordActual" type="password" placeholder="Contraseña Actual"></ion-input>
+      <ion-input [(ngModel)]="adminForm.value.nuevaPassword" type="password" placeholder="Nueva Contraseña"></ion-input>
 
       <div style="text-align: center; margin-top: 30px;">
         <ion-button (click)="actualizarUsuario()" expand="block" shape="round">
