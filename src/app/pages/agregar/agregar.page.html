@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-back-button defaultHref="/tabs/tab1" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
     <ion-title>Agregar Evento</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,34 +14,28 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-card-content>
   <form>
-    <!-- Otros campos para el evento (Id, Descripción, etc.) -->
     <ion-item lines="full">
-      <ion-label position="floating">Nombre</ion-label>
-      <ion-input type="text" name="txtId" [(ngModel)]="newIEvent.nombre" required></ion-input>
+      <ion-input label="Nombre" labelPlacement="floating" placeholder="Ingrese el nombre" type="text" name="txtId" [(ngModel)]="newIEvent.nombre" required></ion-input>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label position="floating">Fecha</ion-label>
-      <ion-input type="text" name="txtId" [(ngModel)]="newIEvent.fecha" required></ion-input>
+      <ion-input label="Fecha" labelPlacement="floating" placeholder="Ingrese la fecha" type="text" name="txtId" [(ngModel)]="newIEvent.fecha" required></ion-input>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label position="floating">Lugar</ion-label>
-      <ion-input type="text" name="txtId" [(ngModel)]="newIEvent.lugar" required></ion-input>
+      <ion-input label="Ubicación" labelPlacement="floating" placeholder="Ingrese la ubicación" type="text" name="txtId" [(ngModel)]="newIEvent.lugar" required></ion-input>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label position="floating">Descripción</ion-label>
-      <ion-input type="text" name="txtDescripcion" [(ngModel)]="newIEvent.descripcion" required></ion-input>
+      <ion-input label="Descripción" labelPlacement="floating" placeholder="Ingrese alguna descripción" type="text" name="txtDescripcion" [(ngModel)]="newIEvent.descripcion" required></ion-input>
     </ion-item>
 
     <ion-item lines="full">
       <ion-label position="floating"></ion-label>
-      <!-- Aquí ocultamos el input de tipo archivo -->
       <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" style="display: none" />
       
-      <!-- Botón para activar el input de archivo -->
       <ion-button (click)="fileInput.click()" expand="full" fill="outline" shape="round">
         Seleccionar Imagen
       </ion-button>
@@ -52,4 +49,5 @@
       </ion-col>
     </ion-row>
   </form>
+</ion-card-content>
 </ion-content>

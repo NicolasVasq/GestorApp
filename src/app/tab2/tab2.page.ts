@@ -130,9 +130,6 @@ export class Tab2Page implements OnInit {
       console.error('No se encontró el ID del usuario logueado.');
     }
   }
-  goToAgregar(){
-    this.router.navigate(['/pages/agregar']);
-  }
 
   isBase64(str: string) {
     const regex = /^data:image\/[a-zA-Z]+;base64,/;

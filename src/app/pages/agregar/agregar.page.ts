@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IEvent } from 'src/interfaces/ItEvent'; // Asegúrate de que la interfaz esté correctamente definida
+import { IEvent } from 'src/interfaces/ItEvent';
 import { ApicrudService } from 'src/app/services/apicrud.service';
 import { Router } from '@angular/router';
 
@@ -10,45 +10,39 @@ import { Router } from '@angular/router';
 })
 export class AgregarPage implements OnInit {
 
-  // Objeto para almacenar la información del nuevo evento
   newIEvent: IEvent = {
-    id: "",  // Deberás asignar un valor numérico o automático para el ID
+    id: "",
     nombre: "",
     fecha: "",
     lugar: "",
     descripcion: "",
-    imagen: ""  // Este campo almacenará la imagen en Base64
+    imagen: "" 
   };
 
-  selectedFile: File | null = null;  // Para almacenar el archivo seleccionado
+  selectedFile: File | null = null; 
 
   constructor(private apicrud: ApicrudService, private router: Router) {}
 
   ngOnInit() {}
 
-  // Este método se llama cuando el usuario selecciona un archivo
   onFileSelected(event: Event) {
-    const input = event.target as HTMLInputElement;  // Accede al archivo seleccionado
+    const input = event.target as HTMLInputElement; 
     if (input.files && input.files[0]) {
       const file = input.files[0];
       const reader = new FileReader();
 
       reader.onload = () => {
-        // Convierte la imagen a Base64 y la almacena en el evento
         this.newIEvent.imagen = reader.result as string;
-        this.selectedFile = file; // Almacena el archivo seleccionado
+        this.selectedFile = file; 
         console.log("Imagen convertida a Base64:", this.newIEvent.imagen);
       };
 
-      reader.readAsDataURL(file); // Lee el archivo como Data URL (Base64)
+      reader.readAsDataURL(file); 
     }
   }
 
-  // Método para crear el evento
   crearEvento() {
-    // Verificar si se seleccionó una imagen
     if (this.newIEvent.imagen) {
-      // Crear el evento con la imagen codificada en Base64
       this.apicrud.postIEvent(this.newIEvent).subscribe(() => {
         this.router.navigateByUrl('/tabs/tab2');
       }, (error) => {

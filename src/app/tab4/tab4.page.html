@@ -1,24 +1,35 @@
-<ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-title>Escaner</ion-title>
-      <ion-buttons slot="start">
-        <ion-button (click)="regresar()">
-          Regresar
-        </ion-button>
-      </ion-buttons>
-    </ion-toolbar>
+<ion-header>
+  <ion-toolbar>
+    <ion-icon slot="start" name="barcode-outline" size="large" style="padding-left: 15px;"></ion-icon>
+    <ion-title>Escaner</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="end" name="menu-outline" size="large" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-grid fixed>
-      <ion-row>
-        <ion-col size="12">
-          <ion-button (click)="leerQr()" expand="block" fill="solid" color="success">
-            Escaner
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
+    
+    <div class="qr-scanner-container">
+      <ion-text color="dark">
+        <h6>Asegurate de darle permisos a la aplicación y de mantener una iluminación buena para la legibilidad del código QR</h6>
+      </ion-text>
+      <div class="qr-scanner">
+        <ion-icon name="qr-code-outline" size="large"></ion-icon>
+      </div>
+      
+      <div id="cameraPreview" class="camera-preview">
+      </div>
+  
+      <ion-text color="primary">
+        <h2>Posiciona el código QR dentro del recuadro</h2>
+      </ion-text>
+  
+      <ion-button (click)="leerQr()" expand="block" fill="solid" color="primary">
+        Escanear
+      </ion-button>
+    </div>
     
 </ion-content>

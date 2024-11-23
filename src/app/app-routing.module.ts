@@ -90,6 +90,10 @@ const routes: Routes = [
     path: 'asistentes',
     loadChildren: () => import('./asistentes/asistentes.module').then( m => m.AsistentesPageModule)
   },
+  {
+    path: 'lista-event',
+    loadChildren: () => import('./lista-event/lista-event.module').then( m => m.ListaEventPageModule)
+  },
 
 
 ];

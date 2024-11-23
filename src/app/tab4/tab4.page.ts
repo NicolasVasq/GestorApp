@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab4',
@@ -12,11 +13,16 @@ export class Tab4Page implements OnInit {
   eventos: any[] = [];
 
   constructor(private http: HttpClient,
-              private router:Router
+              private router:Router,
+              private menuController: MenuController
   ) {}
 
   ngOnInit() {
     Camera.requestPermissions();
+  }
+
+  mostrarMenu() {
+    this.menuController.open('first');
   }
 
   async leerQr(){

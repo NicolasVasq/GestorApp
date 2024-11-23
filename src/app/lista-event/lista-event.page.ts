@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Evento } from './evento.model';
+import { IEvent } from 'src/interfaces/ItEvent';
+import { Router } from '@angular/router';
+import { EventosService } from '../services/eventos.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-lista-event',
@@ -9,29 +13,19 @@ import { Evento } from './evento.model';
 })
 export class ListaEventPage implements OnInit {
 
-  eventos: Evento[] = [];
+  eventos: IEvent[] = [];
   
 
-  constructor(private alertController: AlertController) {}
+  constructor(private alertController: AlertController,
+    private router: Router,
+    private eventosService: EventosService,
+    private authService: AuthService,
+  ) {}
 
-  ngOnInit() {}
-
-  async eliminarEvento(id: number) {
-    const alert = await this.alertController.create({
-      header: 'Confirmar eliminación',
-      message: '¿Estás seguro de que deseas eliminar este evento?',
-      buttons: [
-        { text: 'Cancelar', role: 'cancel' },
-        {
-          text: 'Eliminar',
-          handler: () => {
-            this.eventos = this.eventos.filter(evento => evento.id !== id);
-          },
-        },
-      ],
-    });
-    await alert.present();
+  ngOnInit() {
+    this.obtenerEventos();
   }
+
 
   async editarEvento(evento: Evento) {
     const alert = await this.alertController.create({
@@ -50,7 +44,6 @@ export class ListaEventPage implements OnInit {
           text: 'Guardar',
           handler: (data) => {
             if (data.nombre && data.descripcion && data.fecha && data.hora && data.ubicacion && data.cupos) {
-              // Actualiza el evento con los nuevos datos
               evento.nombre = data.nombre;
               evento.descripcion = data.descripcion;
               evento.fecha = data.fecha;
@@ -69,42 +62,40 @@ export class ListaEventPage implements OnInit {
     await alert.present();
   }
 
-  async abrirFormulario() {
-    const alert = await this.alertController.create({
-      header: 'Crear nuevo evento',
-      inputs: [
-        { name: 'nombre', type: 'text', placeholder: 'Nombre del evento' },
-        { name: 'descripcion', type: 'textarea', placeholder: 'Descripción del evento' },
-        { name: 'fecha', type: 'date', placeholder: 'Fecha del evento' },
-        { name: 'hora', type: 'time', placeholder: 'Hora del evento' },
-        { name: 'ubicacion', type: 'text', placeholder: 'Ubicación del evento' },
-        { name: 'cupos', type: 'number', placeholder: 'Cupos disponibles', min: 1 },
-      ],
-      buttons: [
-        { text: 'Cancelar', role: 'cancel' },
-        {
-          text: 'Crear',
-          handler: (data) => {
-            if (data.nombre && data.descripcion && data.fecha && data.hora && data.ubicacion && data.cupos) {
-              const nuevoEvento: Evento = {
-                id: this.eventos.length + 1,
-                nombre: data.nombre,
-                descripcion: data.descripcion,
-                fecha: data.fecha,
-                hora: data.hora,
-                ubicacion: data.ubicacion,
-                cupos: data.cupos
-              };
-              this.eventos.push(nuevoEvento);
-              return true; 
-            } else {
-              return false; 
-            }
-          },
-        },
-      ],
-    });
 
-    await alert.present();
+  goToAgregar(){
+    this.router.navigate(['/pages/agregar']);
   }
+
+  verDetalle(evento: IEvent) {
+    this.router.navigate(['/event-detail', { id: evento.id }]);
+  }
+
+  obtenerEventos() {
+    this.eventosService.getEventos().subscribe(
+      eventos => {
+        console.log(eventos);
+        this.eventos = eventos;
+
+        const usuarioId = this.authService.getUserId();
+        if (usuarioId) {
+          this.eventos.forEach(evento => {
+            this.eventosService.verificarInscripcion(usuarioId, evento.id).subscribe(asistio => {
+              evento.puedeComentar = asistio;
+            });
+          });
+        }
+      },
+      error => {
+        console.error('Error al obtener eventos:', error);
+      }
+    );
+  }
+
+  isBase64(str: string) {
+    const regex = /^data:image\/[a-zA-Z]+;base64,/;
+    return regex.test(str); 
+  }
+
+  
 }
