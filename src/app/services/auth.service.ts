@@ -41,8 +41,8 @@ export class AuthService {
 }
 
 
-PostAdmin(newAdmin: ICrearAdmin): Observable<Administrador> {
-  return this.httpclient.post<Administrador>(`${environment.apiUrl}/administradores`, newAdmin);
+  PostAdmin(admin: ICrearAdmin): Observable<any> {
+  return this.httpclient.post(`${environment.apiUrl}/administradores`, admin);
 }
 
   getAdministrador(Administrador:any): Observable<Administrador> {

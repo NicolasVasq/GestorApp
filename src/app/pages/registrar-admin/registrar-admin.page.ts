@@ -45,6 +45,7 @@ export class RegistrarAdminPage implements OnInit {
 
   crearAdmin() {
     if (this.registroForm.valid) {
+      // Llamar al servicio para verificar si el administrador ya existe
       this.authservice.getAdministrador(this.registroForm.value.nombre).subscribe(
         resp => {
           this.userdata = resp;
@@ -53,20 +54,24 @@ export class RegistrarAdminPage implements OnInit {
             this.registroForm.reset();
             this.errorDuplicidad();
           } else {
+            // Prepara el nuevo administrador
             this.nuevoAdmin.nombre = this.registroForm.value.nombre;
             this.nuevoAdmin.password = this.registroForm.value.password;
             this.nuevoAdmin.email = this.registroForm.value.email;
             this.nuevoAdmin.rut = this.registroForm.value.rut;
             this.nuevoAdmin.isactive = true;
   
-            // Asegúrate de usar PostAdmin para crear el administrador
-            this.authservice.PostAdmin(this.nuevoAdmin).subscribe(() => {
-              this.mostrarMensaje();
-              this.router.navigateByUrl('/login-admin');
-            }, error => {
-              console.error('Error al crear el administrador:', error);
-              this.mostrarError('No se pudo crear el administrador. Intente de nuevo.');
-            });
+            // Llamar a la API para crear el administrador
+            this.authservice.PostAdmin(this.nuevoAdmin).subscribe(
+              () => {
+                this.mostrarMensaje();
+                this.router.navigateByUrl('/login-admin');
+              },
+              (error) => {
+                console.error('Error al crear el administrador:', error);
+                this.mostrarError('No se pudo crear el administrador. Intente de nuevo.');
+              }
+            );
           }
         },
         error => {
@@ -76,6 +81,7 @@ export class RegistrarAdminPage implements OnInit {
       );
     }
   }
+  
   
 
   async mostrarMensaje() {
