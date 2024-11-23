@@ -1,36 +1,35 @@
-<ion-content [fullscreen]="true">
-  <ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-title>Modificar Evento</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-back-button defaultHref="/tabs/tab1" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-icon slot="start" name="create-outline"></ion-icon>
+    <ion-title>Editar Evento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true"> 
+  <ion-card mode="ios">
+  <ion-card-content>
   <form>
-
-
     <ion-item lines="full">
-      <ion-label position="floating">iD</ion-label>
-      <ion-input type="text" name="tipoId" [(ngModel)]="evento.id" ></ion-input>
+      <ion-input label="ID" labelPlacement="floating" placeholder="Ingrese el ID" type="text" name="tipoId" [(ngModel)]="evento.id" ></ion-input>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label position="floating">Nombre</ion-label>
-      <ion-input type="text" name="tipoId" [(ngModel)]="evento.nombre" ></ion-input>
+      <ion-input label="Nombre" labelPlacement="floating" placeholder="Ingrese el nombre" type="text" name="tipoId" [(ngModel)]="evento.nombre" ></ion-input>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label position="floating">Fecha</ion-label>
-      <ion-input type="text" name="txtFecha" [(ngModel)]="evento.fecha" ></ion-input>
+      <ion-input label="Fecha" labelPlacement="floating" placeholder="Ingrese la fecha" type="text" name="txtFecha" [(ngModel)]="evento.fecha" ></ion-input>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label position="floating">Lugar</ion-label>
-      <ion-input type="text" name="txtLugar" [(ngModel)]="evento.lugar" ></ion-input>
+      <ion-input label="Ubicación" labelPlacement="floating" placeholder="Ingrese la ubicación" type="text" name="txtLugar" [(ngModel)]="evento.lugar" ></ion-input>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label position="floating">Descripción</ion-label>
-      <ion-input type="text" name="tipoDescripcion" [(ngModel)]="evento.descripcion" ></ion-input>
+      <ion-input label="Descripción" labelPlacement="floating" placeholder="Ingrese alguna descripción" type="text" name="tipoDescripcion" [(ngModel)]="evento.descripcion" ></ion-input>
     </ion-item>
 
     <ion-item lines="full">
@@ -42,10 +41,12 @@
     </ion-item>
   </form>
 
-  <!-- Botón para actualizar -->
   <div style="text-align: center; margin-top: 20px;">
-    <ion-button (click)="actualizar()" expand="block" fill="solid" shape="round">
+    <ion-button (click)="actualizar()"  fill="solid" shape="round" >
       Actualizar Evento
     </ion-button>
   </div>
+  
+</ion-card-content>
+</ion-card>
 </ion-content>

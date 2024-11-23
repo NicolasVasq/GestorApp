@@ -97,5 +97,42 @@ export class ListaEventPage implements OnInit {
     return regex.test(str); 
   }
 
+  goToEditar(eventoId: string) {
+    this.router.navigate([`/pages/actualizar/${eventoId}`]);
+  }
+  
+  async borrarEvento(eventoId: string) {
+    const alert = await this.alertController.create({
+      header: '¿Estás seguro?',
+      message: 'Este evento se eliminará permanentemente.',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Cancelado');
+          },
+        },
+        {
+          text: 'Eliminar',
+          cssClass: 'danger',
+          handler: () => {
+            this.eventosService.borrarEvento(eventoId).subscribe(
+              () => {
+                console.log('Evento eliminado');
+                this.eventos = this.eventos.filter(evento => evento.id !== eventoId);
+              },
+              (error) => {
+                console.error('Error al eliminar el evento:', error);
+              }
+            );
+          },
+        },
+      ],
+    });
+  
+    await alert.present();
+  }
   
 }

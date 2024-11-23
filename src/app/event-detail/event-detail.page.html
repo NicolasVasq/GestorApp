@@ -8,9 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <!-- Detalles del evento -->
   <ion-card *ngIf="evento">
-    <!-- Verificamos si la imagen es base64 o una ruta -->
     <img *ngIf="isBase64(evento.imagen)" [src]="evento.imagen" alt="{{ evento.nombre }}" />
     <img *ngIf="!isBase64(evento.imagen)" [src]="'assets/img/' + evento.imagen" alt="{{ evento.nombre }}" />
     
@@ -23,7 +21,6 @@
     </ion-card-content>
   </ion-card>
 
-  <!-- Lista de comentarios -->
   <ion-list *ngIf="comentarios.length > 0">
     <ion-item *ngFor="let comentario of comentarios">
       <ion-label>
@@ -33,18 +30,12 @@
     </ion-item>
   </ion-list>
 
-  <!-- Mensaje si no puede comentar -->
   <ion-item *ngIf="!puedeComentar">
     <p>No puedes comentar, asegúrate de estar inscrito en el evento.</p>
   </ion-item>
 
-  <!-- Input para nuevo comentario -->
   <ion-item>
     <ion-input [(ngModel)]="nuevoComentario" placeholder="Escribe tu comentario..."></ion-input>
   </ion-item>
   <ion-button expand="full" (click)="agregarComentario()">Enviar</ion-button>
-
-  <!-- Botones de acciones -->
-  <ion-button expand="full" color="danger" (click)="borrarEvento()">Borrar Evento</ion-button>
-  <ion-button expand="full" (click)="goToEditar()">Editar</ion-button>
 </ion-content>
