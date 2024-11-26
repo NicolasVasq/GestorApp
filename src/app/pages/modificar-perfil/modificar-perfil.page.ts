@@ -73,7 +73,7 @@ export class ModificarPerfilPage implements OnInit {
   }
 
   regresar() {
-    this.router.navigate(['/tab1']);
+    this.router.navigate(['/tabs/tab1']);
   }
 
   onFileSelected(event: Event) {

@@ -8,14 +8,7 @@ const routes: Routes = [
     redirectTo: 'login-admin',
     pathMatch: 'full'
   },
-  {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
-  },
-  {
-    path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterPageModule)
-  },
+  
   {
     path: '',
     canActivate: [AuthGuard],
@@ -41,21 +34,13 @@ const routes: Routes = [
     canActivate: [AuthGuard], 
     loadChildren: () => import('./pages/get-users/get-users.module').then(m => m.GetUsersPageModule)
   },
-  {
-    path: 'deta-usuarios/:nombre',
-    canActivate: [AuthGuard], 
-    loadChildren: () => import('./pages/deta-usuarios/deta-usuarios.module').then( m => m.DetaUsuariosPageModule)
-  },
+
   {
     path: 'event-detail',
     canActivate: [AuthGuard], 
     loadChildren: () => import('./event-detail/event-detail.module').then( m => m.EventDetailPageModule)
   },
-  {
-    path: 'deta-usuarios',
-    canActivate: [AuthGuard], 
-    loadChildren: () => import('./pages/deta-usuarios/deta-usuarios.module').then(m => m.DetaUsuariosPageModule)
-  },
+  
   {
     path: 'qr-modal',
     canActivate: [AuthGuard], 
@@ -93,7 +78,8 @@ const routes: Routes = [
   {
     path: 'lista-event',
     loadChildren: () => import('./lista-event/lista-event.module').then( m => m.ListaEventPageModule)
-  },  {
+  },
+  {
     path: 'contrasena',
     loadChildren: () => import('./pages/contrasena/contrasena.module').then( m => m.ContrasenaPageModule)
   },

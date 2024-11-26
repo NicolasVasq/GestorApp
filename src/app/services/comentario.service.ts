@@ -10,7 +10,7 @@ import { switchMap, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ComentarioService {
-  private comentariosUrl = 'http://localhost:3000/comentarios';
+  private comentariosUrl = 'https://apinoc.onrender.com/comentarios';
 
   constructor(private http: HttpClient, private authService: AuthService,
               private eventosService: EventosService) { }
