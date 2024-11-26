@@ -6,6 +6,7 @@ export interface IUser {
     rut: string;
     img: string;
     isactive: boolean; 
+    fotoPerfil?: string;
   }
   
   

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/asistentes" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles del Asistente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="usuario">
+    <ion-card-header>
+      <ion-avatar class="center-avatar">
+        <img [src]="usuario.fotoPerfil || 'assets/img/default-avatar.jpg'" alt="Foto de perfil" />
+      </ion-avatar>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>{{ usuario.nombre }}</h2>
+      <p><strong>Email:</strong> {{ usuario.email }}</p>
+      <p><strong>ID:</strong> {{ usuario.id }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="!usuario">
+    <ion-card-content>
+      <p>Datos del usuario no encontrados.</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+z

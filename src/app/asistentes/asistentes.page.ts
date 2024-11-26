@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AsistentesService, Asistente } from '../services/asistentes.service';
 
 @Component({
@@ -7,9 +8,12 @@ import { AsistentesService, Asistente } from '../services/asistentes.service';
   styleUrls: ['./asistentes.page.scss'],
 })
 export class AsistentesPage implements OnInit {
-  asistentes: Asistente[] = [];
+  asistentesPorEvento: { [evento: string]: Asistente[] } = {};
 
-  constructor(private asistentesService: AsistentesService) {}
+  constructor(
+    private asistentesService: AsistentesService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.cargarAsistentes();
@@ -18,7 +22,13 @@ export class AsistentesPage implements OnInit {
   cargarAsistentes() {
     this.asistentesService.obtenerAsistentes().subscribe(
       (data) => {
-        this.asistentes = data;
+        this.asistentesPorEvento = data.reduce((acc: { [evento: string]: Asistente[] }, asistente) => {
+          if (!acc[asistente.evento]) {
+            acc[asistente.evento] = [];
+          }
+          acc[asistente.evento].push(asistente);
+          return acc;
+        }, {});
       },
       (error) => {
         console.error('Error al cargar los asistentes:', error);
@@ -27,6 +37,12 @@ export class AsistentesPage implements OnInit {
   }
 
   verDetalles(asistente: Asistente) {
-    console.log('Detalles del asistente:', asistente);
+    this.router.navigate(['/detalle-asistente'], {
+      queryParams: { email: asistente.email },
+    });
+  }
+
+  objectKeys(obj: { [key: string]: any }): string[] {
+    return Object.keys(obj);
   }
 }
