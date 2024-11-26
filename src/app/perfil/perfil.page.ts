@@ -47,22 +47,7 @@ export class PerfilPage implements OnInit {
   }
 
   // Este método se ejecuta cuando el usuario selecciona una imagen
-  onFileSelected(event: Event) {
-    const input = event.target as HTMLInputElement; // Accede al archivo seleccionado
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
   
-      reader.onload = () => {
-        // Convierte la imagen a Base64 y la almacena en el administrador
-        this.admin.img = reader.result as string;
-        this.selectedFile = file; // Almacena el archivo seleccionado (físico)
-        console.log("Imagen convertida a Base64:", this.admin.img); // Esto es para que puedas ver el base64 en consola
-      };
-  
-      reader.readAsDataURL(file); // Lee el archivo como Data URL (Base64)
-    }
-  }
   
 
   obtenerAdmin() {

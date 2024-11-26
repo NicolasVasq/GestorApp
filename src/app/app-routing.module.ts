@@ -93,7 +93,11 @@ const routes: Routes = [
   {
     path: 'lista-event',
     loadChildren: () => import('./lista-event/lista-event.module').then( m => m.ListaEventPageModule)
+  },  {
+    path: 'contrasena',
+    loadChildren: () => import('./pages/contrasena/contrasena.module').then( m => m.ContrasenaPageModule)
   },
+
 
 
 ];

@@ -5,11 +5,12 @@ import { Administrador } from 'src/interfaces/administradores';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-modificar-perfil',
-  templateUrl: './modificar-perfil.page.html',
-  styleUrls: ['./modificar-perfil.page.scss'],
+  selector: 'app-contrasena',
+  templateUrl: './contrasena.page.html',
+  styleUrls: ['./contrasena.page.scss'],
 })
-export class ModificarPerfilPage implements OnInit {
+export class ContrasenaPage implements OnInit {
+
   administrador: Administrador = {
     id: "",
     nombre: "",
@@ -50,8 +51,21 @@ export class ModificarPerfilPage implements OnInit {
   }
 
   actualizarUsuario() {
-    
-
+    if (this.adminForm.invalid) {
+      console.error('El formulario no es válido');
+      return;
+    }
+  
+    const passwordActual = this.adminForm.value.passwordActual;
+    const nuevaPassword = this.adminForm.value.nuevaPassword;
+  
+    if (this.administrador.password !== passwordActual) {
+      console.error('La contraseña actual es incorrecta.');
+      return;
+    }
+  
+    this.administrador.password = nuevaPassword;
+  
     this.auth.putAdmins(this.administrador).subscribe(response => {
       console.log('Usuario actualizado:', response);
       this.regresar(); 
@@ -71,31 +85,10 @@ export class ModificarPerfilPage implements OnInit {
       }
     );
   }
+  
 
   regresar() {
-    this.router.navigate(['/tab1']);
+    this.router.navigate(['/perfil']);
   }
 
-  onFileSelected(event: Event) {
-    const input = event.target as HTMLInputElement; // Accede al archivo seleccionado
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-  
-      reader.onload = () => {
-        // Convierte la imagen a Base64 y la almacena en el administrador
-        if (this.administrador) {
-          this.administrador.img = reader.result as string;
-          this.selectedFile = file; // Almacena el archivo seleccionado (físico)
-          console.log("Imagen convertida a Base64:", this.administrador.img); // Esto es para que puedas ver el base64 en consola
-        }
-      };
-  
-      reader.readAsDataURL(file); // Lee el archivo como Data URL (Base64)
-    }
-  }
-
-  navigateToLogin() {
-    this.router.navigate(['/contrasena']);
-  }
 }

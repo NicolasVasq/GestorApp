@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start" >
+    <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/tab1" icon="arrow-back-outline"></ion-back-button>
     </ion-buttons>
     <ion-title>
@@ -11,24 +11,18 @@
 
 <ion-content class="profile-content">
   <div class="profile-header">
-    <ion-item lines="full">
-      <ion-label position="floating"></ion-label>
-      <!-- Aquí ocultamos el input de tipo archivo -->
-      <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" style="display: none" />
-      
-      <!-- Botón para activar el input de archivo -->
-      <ion-button (click)="fileInput.click()" expand="full" fill="outline" shape="round">
-        Seleccionar Imagen
-      </ion-button>
-      
+    <ion-item>
+      <ion-label></ion-label>
+      <img [src]="administrador?.img" alt="Imagen de perfil" style="max-width: 100px; max-height: 100px; border-radius: 50%;" />
     </ion-item>
     <h2 class="profile-name">{{ administrador?.nombre }}</h2>
     <p class="profile-username">{{ administrador?.email }}</p>
   </div>
-  
 
   <ion-list class="profile-details" *ngIf="administrador">
     <ion-item>
+      <!-- Mostrar imagen de perfil -->
+      
       <ion-label>Nombre</ion-label>
       <ion-text>{{ administrador?.nombre }}</ion-text>
     </ion-item>
@@ -41,6 +35,7 @@
       <ion-text>{{ administrador.rut }}</ion-text>
     </ion-item>
   </ion-list>
+
   <ion-button (click)="redirigirUpdate()" expand="block" fill="clear" shape="round">
     Cambiar Datos
   </ion-button>
