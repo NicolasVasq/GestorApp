@@ -13,7 +13,13 @@
   <div class="profile-header">
     <ion-item>
       <ion-label></ion-label>
-      <img [src]="administrador?.img" alt="Imagen de perfil" style="max-width: 100px; max-height: 100px; border-radius: 50%;" />
+      <img 
+  [src]="administrador?.img ? administrador.img : 'assets/img/default-avatar.png'" 
+  *ngIf="administrador"
+  alt="Imagen de perfil" 
+  style="max-width: 100px; max-height: 100px; border-radius: 50%;" 
+/>
+
     </ion-item>
     <h2 class="profile-name">{{ administrador?.nombre }}</h2>
     <p class="profile-username">{{ administrador?.email }}</p>
@@ -21,8 +27,6 @@
 
   <ion-list class="profile-details" *ngIf="administrador">
     <ion-item>
-      <!-- Mostrar imagen de perfil -->
-      
       <ion-label>Nombre</ion-label>
       <ion-text>{{ administrador?.nombre }}</ion-text>
     </ion-item>
@@ -32,7 +36,7 @@
     </ion-item>
     <ion-item>
       <ion-label>Rut</ion-label>
-      <ion-text>{{ administrador.rut }}</ion-text>
+      <ion-text>{{ administrador?.rut }}</ion-text>
     </ion-item>
   </ion-list>
 

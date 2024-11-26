@@ -5,6 +5,7 @@ export interface IUser {
     password: string;
     rut: string;
     isactive: boolean; 
+    fotoPerfil?: string;
   }
   
   

@@ -97,6 +97,10 @@ const routes: Routes = [
     path: 'contrasena',
     loadChildren: () => import('./pages/contrasena/contrasena.module').then( m => m.ContrasenaPageModule)
   },
+  {
+    path: 'detalle-asistente',
+    loadChildren: () => import('./detalle-asistente/detalle-asistente.module').then( m => m.DetalleAsistentePageModule)
+  },
 
 
 

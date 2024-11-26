@@ -20,7 +20,7 @@ export class ModificarPerfilPage implements OnInit {
     isactive: false 
   };
   adminForm: FormGroup;
-  selectedFile: File | null = null;  // Para almacenar el archivo seleccionado
+  selectedFile: File | null = null;
 
   constructor(
     private activated: ActivatedRoute, 
@@ -73,25 +73,24 @@ export class ModificarPerfilPage implements OnInit {
   }
 
   regresar() {
-    this.router.navigate(['/tab1']);
+    this.router.navigate(['/tabs/tab1']);
   }
 
   onFileSelected(event: Event) {
-    const input = event.target as HTMLInputElement; // Accede al archivo seleccionado
+    const input = event.target as HTMLInputElement;
     if (input.files && input.files[0]) {
       const file = input.files[0];
       const reader = new FileReader();
   
       reader.onload = () => {
-        // Convierte la imagen a Base64 y la almacena en el administrador
         if (this.administrador) {
           this.administrador.img = reader.result as string;
-          this.selectedFile = file; // Almacena el archivo seleccionado (físico)
-          console.log("Imagen convertida a Base64:", this.administrador.img); // Esto es para que puedas ver el base64 en consola
+          this.selectedFile = file; 
+          console.log("Imagen convertida a Base64:", this.administrador.img);
         }
       };
   
-      reader.readAsDataURL(file); // Lee el archivo como Data URL (Base64)
+      reader.readAsDataURL(file);
     }
   }
 

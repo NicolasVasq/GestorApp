@@ -1,26 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start" >
+    <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/tab1" icon="arrow-back-outline"></ion-back-button>
     </ion-buttons>
-    <ion-title>
-      Lista de asistentes
-    </ion-title>
+    <ion-title>Lista de asistentes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-item *ngFor="let asistente of asistentes">
-      
-      <ion-label> 
+  <ion-list *ngFor="let evento of objectKeys(asistentesPorEvento)">
+    <ion-item-divider>
+      <ion-label>
+        <h2>{{ evento }}</h2>
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-item *ngFor="let asistente of asistentesPorEvento[evento]">
+      <ion-label>
         <h2>{{ asistente.nombre }}</h2>
         <p>{{ asistente.email }}</p>
       </ion-label>
-
       <ion-button fill="outline" slot="end" (click)="verDetalles(asistente)">
         Detalles
       </ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
+
