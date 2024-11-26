@@ -33,7 +33,6 @@ export class Tab2Page implements OnInit {
   obtenerEventos() {
     this.eventosService.getEventos().subscribe(
       eventos => {
-        console.log(eventos);
         this.eventos = eventos;
 
         const usuarioId = this.authService.getUserId();
@@ -133,6 +132,6 @@ export class Tab2Page implements OnInit {
 
   isBase64(str: string) {
     const regex = /^data:image\/[a-zA-Z]+;base64,/;
-    return regex.test(str);  // Si coincide con la expresión regular, es base64
+    return regex.test(str);
   }
 }
