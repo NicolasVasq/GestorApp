@@ -3,6 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { MenuController } from '@ionic/angular';
+import { Capacitor } from '@capacitor/core';
+
+if (Capacitor.isNativePlatform()) {
+  // Código para dispositivos móviles
+} else {
+  console.warn('La cámara no está disponible en entornos web');
+}
+
 
 @Component({
   selector: 'app-tab4',

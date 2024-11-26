@@ -40,12 +40,6 @@ const routes: Routes = [
     canActivate: [AuthGuard], 
     loadChildren: () => import('./event-detail/event-detail.module').then( m => m.EventDetailPageModule)
   },
-  
-  {
-    path: 'qr-modal',
-    canActivate: [AuthGuard], 
-    loadChildren: () => import('./qr-modal/qr-modal.module').then( m => m.QrModalPageModule)
-  },
   {
     path: 'eventos-registrados',
     canActivate: [AuthGuard], 
@@ -53,18 +47,22 @@ const routes: Routes = [
   },
   {
     path: 'pages/agregar',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./pages/agregar/agregar.module').then(m => m.AgregarPageModule)
   },
   {
     path: 'pages/actualizar/:id',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./pages/actualizar/actualizar.module').then( m => m.ActualizarPageModule)
   },
   {
     path: 'eliminar/:id',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./pages/eliminar/eliminar.module').then( m => m.EliminarPageModule)
   },
   {
     path: 'registrar-admin',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./pages/registrar-admin/registrar-admin.module').then( m => m.RegistrarAdminPageModule)
   },
   {
@@ -73,18 +71,22 @@ const routes: Routes = [
   },
   {
     path: 'asistentes',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./asistentes/asistentes.module').then( m => m.AsistentesPageModule)
   },
   {
     path: 'lista-event',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./lista-event/lista-event.module').then( m => m.ListaEventPageModule)
   },
   {
     path: 'contrasena',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./pages/contrasena/contrasena.module').then( m => m.ContrasenaPageModule)
   },
   {
     path: 'detalle-asistente',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./detalle-asistente/detalle-asistente.module').then( m => m.DetalleAsistentePageModule)
   },
 
